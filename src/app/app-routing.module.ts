@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {HomeComponent} from './components/pages/home/home.component';
-import {SearchResultComponent} from './components/pages/search-result/search-result.component';
+import {TrackerMainComponent} from './components/pages/tracker-main/tracker-main.component';
 
 const routes: Routes = [
   {
@@ -9,8 +9,8 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: "search/:ticker",
-    component: SearchResultComponent
+    path: 'tracker',
+    component: TrackerMainComponent
   }
 ];
 

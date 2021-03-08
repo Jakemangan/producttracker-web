@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
   environment: "dev",
-  apiBaseUrl: ""
+  apiBaseUrl: "https://producttracker-api.herokuapp.com/"
 };

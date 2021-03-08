@@ -1,0 +1,16 @@
+<div class="w-1/2 ml-auto mr-auto">
+  <div class="flex justify-between mt-5">
+    <h2>Products: {{activeTrackers.length}}/2</h2>
+    <button mat-flat-button
+            class="bg-blue-500 text-white shadow border border-white"
+            (click)="openAddTrackerDialog()" [disabled]="activeTrackers.length >= 2">Add new tracker</button>
+  </div>
+
+  <div class="mt-5">
+    <ng-container *ngFor="let tracker of activeTrackers">
+      <div class="mb-2">
+        <app-product-tracker [trackerDefinition]="tracker" (removeEmitter)="removeTracker($event)"></app-product-tracker>
+      </div>
+    </ng-container>
+  </div>
+</div>

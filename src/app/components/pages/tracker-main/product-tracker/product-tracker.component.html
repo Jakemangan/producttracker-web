@@ -1,0 +1,21 @@
+<div class="w-full p-3 border rounded border-gray-400 bg-white shadow">
+  <h4>{{trackerDefinition.title}}</h4>
+
+  <div class="flex justify-between">
+    <div>
+      <span *ngIf="trackerDefinition.id" class="text-xs text-gray-500 mr-1">Price</span>
+      <span *ngIf="!trackerDefinition.id" class="text-xs text-gray-500 mr-1">Getting your price...</span>
+      <span>{{trackerDefinition.prettyPrice}}</span>
+    </div>
+    <button mat-icon-button
+            class="h-4"
+            (click)="remove()"
+            [disableRipple]="true">
+      <mat-icon class="text-gray-400 text-sm">cancel</mat-icon>
+    </button>
+  </div>
+
+  <ng-container *ngIf="!trackerDefinition.id">
+    <mat-progress-bar class="mt-3" mode="indeterminate"></mat-progress-bar>
+  </ng-container>
+</div>

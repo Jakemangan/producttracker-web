@@ -1,0 +1,9 @@
+<div class="bg-white">
+  <p>Enter a URL below to track the product on the webpage.</p>
+  <input [(ngModel)]="inputUrl" class="w-full">
+
+  <div class="flex justify-between p-2">
+    <button mat-flat-button class="bg-blue-500 text-white" (click)="submit()">Okay</button>
+    <button mat-flat-button class="bg-gray-600 text-white" (click)="close()">Cancel</button>
+  </div>
+</div>
