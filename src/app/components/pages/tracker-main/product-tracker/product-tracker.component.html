@@ -1,22 +1,28 @@
-<div class="p-3 max-h-56 min-height border rounded border-gray-300 bg-white">
-  <div class="flex justify-between">
+<div class="p-3 max-h-56 tracker-height border rounded border-gray-300 bg-white">
+  <div class="flex justify-between h-full">
     <div class="flex justify-between w-full">
-      <div class="flex flex-col">
-        <div class="text-xs lg:w-48 md:w-36 sm:w-24">{{trackerDefinition.title}}</div>
-        <div class="mt-2">
-          <sl-badge *ngIf="trackerDefinition.isAvailable" pill type="success">Available</sl-badge>
-          <sl-badge *ngIf="!trackerDefinition.isAvailable" pill type="danger">Not available</sl-badge>
+      <div class="flex lg:flex-row justify-between">
+        <div *ngIf="!shouldDisplaySkeletonImage" class="image-container flex justify-center items-center">
+          <img class="tracker-image" src="{{trackerDefinition.imageUrl}}" (error)="displaySkeletonImage()">
+        </div>
+        <div *ngIf="shouldDisplaySkeletonImage"  class="bg-gray-200 image-skeleton flex justify-center items-center"><span class="skeleton-font-size text-gray-400"><sl-icon name="question"></sl-icon>
+</span></div>
+        <div class="flex flex-col ml-2">
+          <div class="text-xs xl:w-64 lg:w-48 md:w-36 sm:w-24 text-overflow">{{trackerDefinition.title}}</div>
+          <div class="flex flex-col">
+            <span class="text-md text-green-500 font-medium">{{trackerDefinition.id ? trackerDefinition.currentPricePretty : '...'}}</span>
+            <span class="text-xs text-gray-300 font-medium current-price-position">{{trackerDefinition.id ? trackerDefinition.initialPricePretty : '...'}}</span>
+          </div>
         </div>
       </div>
-      <div class="flex flex-col">
-        <span  class="text-xs mr-2 text-gray-700 mr-1 text-right">Price</span>
-        <span class="text-lg mr-2 text-green-400 font-medium">{{trackerDefinition.id ? trackerDefinition.currentPricePretty : '...'}}</span>
-        <span class="text-sm mr-2 text-gray-500 font-medium text-right">{{trackerDefinition.id ? trackerDefinition.initialPricePretty : '...'}}</span>
+      <div class="">
+        <div *ngIf="trackerDefinition.isAvailable" class="h-3 pill-font-size w-16 rounded-2xl bg-green-300 text-green-900 flex justify-center items-center"><span>Available</span></div>
+        <div *ngIf="!trackerDefinition.isAvailable"  class="h-3 pill-font-size w-20 rounded-2xl bg-red-300 text-red-900 flex justify-center items-center"><span>Not available</span></div>
       </div>
 
     </div>
 
-    <img class="tracker-image" src="{{trackerDefinition.imageUrl}}">
+
 
 <!--    <button mat-icon-button-->
 <!--            class="h-4"-->

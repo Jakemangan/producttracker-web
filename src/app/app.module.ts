@@ -24,6 +24,7 @@ import {AuthResolver} from './services/auth.resolver';
 import { NavBarComponent } from './components/orphan-components/nav-bar/nav-bar.component';
 import { UserMenuComponent } from './components/orphan-components/auth-button/user-menu/user-menu.component'
 import {MatMenuModule} from '@angular/material/menu';
+import {MatChipsModule} from '@angular/material/chips'
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -52,6 +53,7 @@ import {MatMenuModule} from '@angular/material/menu';
     MatMenuModule,
     MatDialogModule,
     MatIconModule,
+    MatChipsModule,
     AuthModule.forRoot({
       ...env.auth,
       httpInterceptor: {

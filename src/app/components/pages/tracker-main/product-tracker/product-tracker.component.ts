@@ -19,6 +19,7 @@ export class ProductTrackerComponent implements OnInit, OnChanges {
 
   public prettyPrice!: string;
   public loading: boolean = false;
+  public shouldDisplaySkeletonImage = false;
 
   constructor(private _priceService: TrackerService) { }
 
@@ -34,5 +35,7 @@ export class ProductTrackerComponent implements OnInit, OnChanges {
     this.removeEmitter.emit(this.trackerDefinition.id);
   }
 
-
+  displaySkeletonImage(){
+    this.shouldDisplaySkeletonImage = true;
+  }
 }
