@@ -1,0 +1,13 @@
+.icon-width{
+    width: 10px;
+}
+
+button.mat-menu-item{
+    height: 30px;
+}
+
+div.mat-menu-panel{
+    box-shadow: none;
+    @apply border; 
+    @apply border-gray-300;
+}

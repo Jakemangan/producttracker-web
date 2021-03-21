@@ -1,0 +1,9 @@
+<div class="flex justify-center">
+  <app-login-button *ngIf="(auth.isAuthenticated$ | async) === false">
+  </app-login-button>
+  <app-user-menu *ngIf="auth.isAuthenticated$ | async">
+  </app-user-menu>
+</div>
+
+
+

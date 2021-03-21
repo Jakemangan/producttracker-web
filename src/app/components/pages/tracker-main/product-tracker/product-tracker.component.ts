@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewEncapsulation} from '@angular/core';
 import {TrackerService} from '../../../../services/tracker.service';
 import {take} from 'rxjs/operators';
-import {ProductTrackerDefinition} from '../../../../models/ProductTrackerDefinition';
+import {ProductTracker} from '../../../../models/ProductTracker';
 import {PriceResponse} from '../../../../models/ScrapeResult';
 
 
@@ -13,7 +13,7 @@ import {PriceResponse} from '../../../../models/ScrapeResult';
 })
 export class ProductTrackerComponent implements OnInit, OnChanges {
 
-  @Input() trackerDefinition!: ProductTrackerDefinition;
+  @Input() trackerDefinition!: ProductTracker;
   @Input() isLoading = true;
   @Output() removeEmitter: EventEmitter<string> = new EventEmitter<string>();
 

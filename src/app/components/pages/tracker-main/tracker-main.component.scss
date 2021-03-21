@@ -1,0 +1,23 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 20px 20px;
+  grid-template-areas: "left-column right-column";
+}
+
+.left-column { grid-area: left-column; }
+.right-column { grid-area: right-column; }
+
+.tracker-container{
+  @apply flex;
+  @apply flex-col;
+
+  @screen sm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    //grid-template-rows: 1fr;
+    gap: 20px 20px;
+    grid-template-areas: "left-column right-column";
+  }
+}

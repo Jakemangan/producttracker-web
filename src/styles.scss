@@ -12,3 +12,33 @@ html, body {
 body {
   background-color: #f3f3f3;
 }
+
+@media only screen and (min-width: 640px){
+  .container{
+    max-width: 580px;
+  }
+}
+
+@media only screen and (min-width: 768px){
+  .container{
+    max-width: 688px;
+  }
+}
+
+@media only screen and (min-width: 908px){
+  .container{
+    max-width: 828px;
+  }
+}
+
+@media only screen and (min-width: 1024px){
+  .container{
+    max-width: 924px;
+  }
+}
+
+@media only screen and (min-width: 1280px){
+  .container{
+    max-width: 1180px;
+  }
+}
