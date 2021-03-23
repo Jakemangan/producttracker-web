@@ -1,27 +1,41 @@
-<div class="p-3 max-h-56 tracker-height border rounded border-gray-300 bg-white">
+<div class="p-3 max-h-40 tracker-height border rounded border-gray-300 bg-white">
   <div class="flex justify-between h-full">
     <div class="flex justify-between w-full">
-      <div class="flex lg:flex-row justify-between">
-        <div *ngIf="!shouldDisplaySkeletonImage" class="image-container flex justify-center items-center">
-          <img class="tracker-image" src="{{trackerDefinition.imageUrl}}" (error)="displaySkeletonImage()">
-        </div>
-        <div *ngIf="shouldDisplaySkeletonImage"  class="bg-gray-200 image-skeleton flex justify-center items-center"><span class="skeleton-font-size text-gray-400"><sl-icon name="question"></sl-icon>
-</span></div>
+      <div class="flex lg:flex-row w-full justify-between">
         <div class="flex flex-col ml-2">
           <div class="text-xs xl:w-64 lg:w-48 md:w-36 sm:w-24 text-overflow">{{trackerDefinition.title}}</div>
-          <div class="flex flex-col">
-            <span class="text-md text-green-500 font-medium">{{trackerDefinition.id ? trackerDefinition.currentPricePretty : '...'}}</span>
-            <span class="text-xs text-gray-300 font-medium current-price-position">{{trackerDefinition.id ? trackerDefinition.initialPricePretty : '...'}}</span>
+          <div class="mt-2">
+            <div *ngIf="trackerDefinition.isAvailable" class="h-4 w-16 rounded bg-green-300 text-green-900 flex justify-center items-center"><span class="pill-text">Available</span></div>
+            <div *ngIf="!trackerDefinition.isAvailable"  class="h-4 w-20 rounded bg-red-300 text-red-900 flex justify-center items-center"><span class="pill-text">Not available</span></div>
           </div>
         </div>
+        <div class="flex flex-col mr-2">
+          <div class="w-full flex justify-end">
+            <div *ngIf="trackerDefinition.priceData.priceDifference > 0" class="h-4 w-12 flex rounded bg-red-300 text-red-900 justify-center items-center">
+              <span class="text-lg"><mat-icon [inline]="true">arrow_drop_up</mat-icon></span>
+              <span class="text-xs">{{priceDifference}}%</span>
+            </div>
+            <div *ngIf="trackerDefinition.priceData.priceDifference < 0" class="h-4 w-12 flex rounded bg-green-300 text-green-900 justify-center items-center">
+              <span class="text-lg"><mat-icon class="text-lg" [inline]="true">arrow_drop_down</mat-icon></span>
+              <span class="text-xs">{{priceDifference}}%</span>
+            </div>
+          </div>
+          <span *ngIf="trackerDefinition.priceData.priceDifference > 0" class="text-lg text-red-500 font-medium">{{trackerDefinition.id ? trackerDefinition.priceData.currentPricePretty : '...'}}</span>
+          <span *ngIf="trackerDefinition.priceData.priceDifference == 0" class="text-lg text-gray-800 font-medium">{{trackerDefinition.id ? trackerDefinition.priceData.currentPricePretty : '...'}}</span>
+          <span *ngIf="trackerDefinition.priceData.priceDifference < 0" class="text-lg text-green-500 font-medium">{{trackerDefinition.id ? trackerDefinition.priceData.currentPricePretty : '...'}}</span>
+          <span class="text-xs text-gray-400 font-medium current-price-position text-right">{{trackerDefinition.id ? trackerDefinition.priceData.initialPricePretty : '...'}}</span>
+        </div>
       </div>
-      <div class="">
-        <div *ngIf="trackerDefinition.isAvailable" class="h-3 pill-font-size w-16 rounded-2xl bg-green-300 text-green-900 flex justify-center items-center"><span>Available</span></div>
-        <div *ngIf="!trackerDefinition.isAvailable"  class="h-3 pill-font-size w-20 rounded-2xl bg-red-300 text-red-900 flex justify-center items-center"><span>Not available</span></div>
-      </div>
-
     </div>
 
+    <div *ngIf="!shouldDisplaySkeletonImage" class="image-container flex justify-center items-baseline">
+      <img class="tracker-image" src="{{trackerDefinition.imageUrl}}" (error)="displaySkeletonImage()">
+    </div>
+    <div *ngIf="shouldDisplaySkeletonImage"  class="bg-gray-200 image-skeleton flex justify-center items-center">
+      <span class="skeleton-font-size text-gray-400">
+        <sl-icon name="question"></sl-icon>
+      </span>
+    </div>
 
 
 <!--    <button mat-icon-button-->

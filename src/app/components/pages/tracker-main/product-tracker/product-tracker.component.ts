@@ -20,10 +20,12 @@ export class ProductTrackerComponent implements OnInit, OnChanges {
   public prettyPrice!: string;
   public loading: boolean = false;
   public shouldDisplaySkeletonImage = false;
+  public priceDifference: string = "";
 
   constructor(private _priceService: TrackerService) { }
 
   ngOnInit(): void {
+    this.priceDifference = this.trackerDefinition.priceData?.priceDifference.toString().replace(/-/g, "")!;
   }
 
   ngOnChanges(changes: SimpleChanges): void {

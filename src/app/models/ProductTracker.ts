@@ -7,13 +7,18 @@ export interface ProductTracker {
   url: string,
   title?: string,
   imageUrl?: string,
-  initialPrice?: number;
-  currentPrice?: number;
-  initialPricePretty?: string;
-  currentPricePretty?: string;
+  priceData?: ProductTrackerPriceData
   trackingFrequency?: TrackingFrequency,
   isAvailable?: boolean,
   dateStartedTracking?: number;
   currencyType?: string;
   datapoints?: TrackerDatapoint[]
+}
+
+export interface ProductTrackerPriceData {
+  currentPrice: number;
+  currentPricePretty: string;
+  initialPrice: number;
+  initialPricePretty: string;
+  priceDifference: number;
 }
