@@ -1,176 +1,302 @@
-<div [ngClass]="trackerDefinition.isAvailable ? 'bg-green-200' : 'bg-red-200'" class="h-8 w-8 rounded-full bg-white flex justify-center items-center available-position">
-  <div *ngIf="trackerDefinition.isAvailable" class="text-green-600" [matTooltip]="'Available to buy'">
-    <fa-icon [icon]="faShoppingBag"></fa-icon>
-  </div>
-  <div *ngIf="!trackerDefinition.isAvailable" class="text-red-600" [matTooltip]="'Not available to buy'">
-    <fa-icon [icon]="faShoppingBag" class="z-20"></fa-icon>
-<!--    <fa-icon class="cross-overlay text-red-400 z-10" [icon]="faTimes"></fa-icon>-->
-  </div>
-</div>
-
-<div class="p-3 max-h-40 tracker-height rounded card-grey-border bg-white">
-  <div class="flex flex-row justify-between h-full">
-    <div class="flex flex-col ml-2 mr-4">
-      <div class="h-4/5 w-full flex flex-row">
-        <div class="w-2/3">
-          <div class="flex flex-col">
-<!--            <div>-->
-<!--              <div *ngIf="trackerDefinition.isAvailable" class="h-4 w-16 rounded bg-green-300 text-green-900 flex justify-center items-center"><span class="pill-text">Available</span></div>-->
-<!--              <div *ngIf="!trackerDefinition.isAvailable"  class="h-4 w-20 rounded bg-red-300 text-red-900 flex justify-center items-center"><span class="pill-text">Not available</span></div>-->
-<!--            </div>-->
-            <div class="flex flex-row">
-              <div class="title-font">{{modifiedTitle}}</div>
-            </div>
-          </div>
-        </div>
-        <div class="w-1/3">
-          <div class="flex flex-col">
-            <div class="w-full flex justify-end">
-              <div *ngIf="trackerDefinition.priceData.priceDifference > 0" class="h-4 w-12 flex rounded bg-red-300 text-red-900 justify-center items-center">
-                <span class="text-lg"><mat-icon [inline]="true">arrow_drop_up</mat-icon></span>
-                <span class="text-xs">{{priceDifference}}%</span>
-              </div>
-              <div *ngIf="trackerDefinition.priceData.priceDifference == 0" class="h-4 w-12 flex rounded bg-gray-200 text-gray-900 justify-center items-center">
-                <span class="text-xs">{{priceDifference}}%</span>
-              </div>
-              <div *ngIf="trackerDefinition.priceData.priceDifference < 0" class="h-4 w-12 flex rounded bg-green-300 text-green-900 justify-center items-center">
-                <span class="text-lg"><mat-icon class="text-lg" [inline]="true">arrow_drop_down</mat-icon></span>
-                <span class="text-xs">{{priceDifference}}%</span>
-              </div>
-            </div>
-            <div class="mt-1 w-full flex flex-col">
-              <span *ngIf="trackerDefinition.priceData.priceDifference > 0" class="text-md text-red-500 font-medium text-right">{{trackerDefinition.id ? trackerDefinition.priceData.currentPricePretty : '...'}}</span>
-              <span *ngIf="trackerDefinition.priceData.priceDifference == 0" class="text-md text-gray-800 font-medium text-right">{{trackerDefinition.id ? trackerDefinition.priceData.currentPricePretty : '...'}}</span>
-              <span *ngIf="trackerDefinition.priceData.priceDifference < 0" class="text-md text-green-500 font-medium text-right">{{trackerDefinition.id ? trackerDefinition.priceData.currentPricePretty : '...'}}</span>
-              <span class="text-xs text-gray-600 font-medium current-price-position text-right">{{trackerDefinition.id ? trackerDefinition.priceData.initialPricePretty : '...'}}</span>
-            </div>
-          </div>
-        </div>
+<div class="flex-1 border border-gray-200 mb-4">
+  <div class="h-14 border-b border-gray-200 bg-gray-100">
+    <div class="p-2 pl-6 pr-6 h-full flex flex-row justify-between">
+      <div class="flex flex-col mt-auto mb-auto w-3/5">
+        <span class="text-xs text-gray-500 mb-1">Product</span>
+        <span class="text-xs font-semibold truncate">{{trackerDefinition.title}}</span>
       </div>
-      <div class="h-1/5 flex flex-row justify-between">
-          <div class="w-2/5 status-icon-container flex flex-row">
-            <a class="text-gray-600 mr-2 cursor-pointer" href="{{trackerDefinition.url}}" target="_blank"><fa-icon [icon]="faExternalLinkAlt"></fa-icon></a>
-<!--        <div *ngIf="trackerDefinition.isAvailable" class="h-4 w-16 rounded bg-green-300 text-green-900 flex justify-center items-center"><span class="pill-text">Available</span></div>-->
-<!--        <div *ngIf="!trackerDefinition.isAvailable"  class="h-4 w-20 rounded bg-red-300 text-red-900 flex justify-center items-center"><span class="pill-text">Not available</span></div>-->
-<!--            <div *ngIf="trackerDefinition.isAvailable" class="text-green-600" [matTooltip]="'Available to buy'">-->
-<!--              <fa-icon [icon]="faShoppingBag"></fa-icon>-->
-<!--            </div>-->
-<!--            <div *ngIf="!trackerDefinition.isAvailable" class="text-red-600" [matTooltip]="'Not available to buy'">-->
-<!--              <fa-icon [icon]="faShoppingBag"></fa-icon>-->
-<!--            </div>-->
+      <div class="flex flex-col-reverse mt-auto mb-auto">
+        <div class="flex flex-row justify-end">
+<!--          <span class="text-xs text-gray-500">Price</span>-->
+          <div *ngIf="trackerDefinition.priceData.priceDifference > 0" class="h-4 w-12 flex rounded bg-red-300 text-red-900 justify-center items-center">
+            <span class="text-base"><mat-icon [inline]="true">arrow_drop_up</mat-icon></span>
+            <span class="text-xxs font-semibold">{{priceDifference}}%</span>
           </div>
-        <div class="w-1/5 flex justify-end items-end">
-          <div class="flex flex-row">
-            <div class="text-gray-600 mr-2 opacity-30">
-              <fa-icon [icon]="faChartArea"></fa-icon>
-            </div>
-            <div class="text-gray-600 text-sm cursor-pointer">
-              <fa-icon [matMenuTriggerFor]="menu" [icon]="faEllipsisH"></fa-icon>
-            </div>
-
+          <div *ngIf="trackerDefinition.priceData.priceDifference == 0" class="h-4 w-12 flex rounded bg-gray-300 text-gray-900 justify-center items-center">
+            <span class="text-xxs font-semibold">{{priceDifference}}%</span>
           </div>
+          <div *ngIf="trackerDefinition.priceData.priceDifference < 0" class="h-4 w-12 flex rounded bg-green-300 text-green-900 justify-center items-center">
+            <span class="text-base"><mat-icon class="text-lg" [inline]="true">arrow_drop_down</mat-icon></span>
+            <span class="text-xxs font-semibold">{{priceDifference}}%</span>
+          </div>
+        </div>
+        <div class="flex flex-row justify-between">
+          <span *ngIf="trackerDefinition.priceData.priceDifference > 0" class="text-base text-red-500 text-right font-semibold">{{trackerDefinition.id ? trackerDefinition.priceData.currentPricePretty : '...'}}</span>
+          <span *ngIf="trackerDefinition.priceData.priceDifference == 0" class="text-base text-gray-800 text-right font-semibold">{{trackerDefinition.id ? trackerDefinition.priceData.currentPricePretty : '...'}}</span>
+          <span *ngIf="trackerDefinition.priceData.priceDifference < 0" class="text-base text-green-500 text-right font-semibold">{{trackerDefinition.id ? trackerDefinition.priceData.currentPricePretty : '...'}}</span>
+          <span class="ml-1 text-xs text-gray-400 font-semibold flex items-end initial-price-position">/ {{trackerDefinition.id ? trackerDefinition.priceData.initialPricePretty : '...'}}</span>
         </div>
       </div>
     </div>
-
-    <div class="w-1/3">
-      <div *ngIf="!shouldDisplaySkeletonImage" class="image-container flex justify-center items-baseline">
+  </div>
+  <div class="h-40 flex flex-row">
+    <div class="w-1/5 h-full">
+      <div *ngIf="!shouldDisplaySkeletonImage" class="h-full p-4 pl-6 flex">
         <img class="tracker-image" src="{{trackerDefinition.imageUrl}}" (error)="displaySkeletonImage()">
       </div>
-      <div *ngIf="shouldDisplaySkeletonImage" [ngClass]="{'animate-pulse': !trackerDefinition.id}"  class="bg-gray-200 image-skeleton rounded flex justify-center items-center">
-        <span class="skeleton-font-size text-gray-400">
-          <fa-icon [icon]="faImage"></fa-icon>
-        </span>
+      <div *ngIf="shouldDisplaySkeletonImage" class="p-3 pl-5 h-full">
+        <div [ngClass]="{'animate-pulse': !trackerDefinition.id}"  class="bg-gray-200 image-skeleton rounded flex justify-center items-center">
+            <span class="skeleton-font-size text-gray-400">
+              <fa-icon [icon]="faImage"></fa-icon>
+            </span>
+        </div>
       </div>
       <div *ngIf="!trackerDefinition.id" class="animate-pulse bg-gray-200 image-skeleton rounded flex justify-center items-center">
-        <span class="skeleton-font-size text-gray-400">
-          <fa-icon [icon]="faImage"></fa-icon>
-        </span>
+            <span class="skeleton-font-size text-gray-400">
+              <fa-icon [icon]="faImage"></fa-icon>
+            </span>
+      </div>
+    </div>
+    <div class="w-1/5 h-full flex flex-col justify-start items-start">
+      <div class="mb-1 mt-4 flex flex-row">
+        <div [ngClass]="trackerDefinition.isAvailable ? 'bg-green-300' : 'bg-red-300'" class="h-6 w-6 rounded bg-white flex justify-center items-center">
+          <div *ngIf="trackerDefinition.isAvailable" class="text-green-600 text-xs">
+            <fa-icon [icon]="faShoppingBag"></fa-icon>
+          </div>
+          <div *ngIf="!trackerDefinition.isAvailable" class="text-red-600">
+            <fa-icon [icon]="faShoppingBag" class="z-20"></fa-icon>
+            <!--    <fa-icon class="cross-overlay text-red-400 z-10" [icon]="faTimes"></fa-icon>-->
+          </div>
+        </div>
+        <div class="ml-2">
+          <span class="text-xxs text-gray-800 font-semibold">{{trackerDefinition.isAvailable ? "Available to buy" : "Not available to buy"}}.</span>
+        </div>
+      </div>
+
+      <div class="mt-1 mb-1 flex flex-row">
+        <div class="h-6 w-6 rounded bg-gray-300 flex justify-center items-center">
+          <div class="text-gray-700">
+            <span class="text-xs">24</span><span class="text-xxs">h</span>
+          </div>
+        </div>
+        <div class="ml-2">
+          <span class="text-xxs text-gray-800 font-semibold">Tracker will update every {{trackerDefinition.trackingFrequency}}.</span>
+        </div>
+      </div>
+
+      <div class="mt-1 mb-1 flex flex-row">
+        <div class="h-6 w-6 rounded bg-gray-300 flex justify-center items-center">
+          <div class="text-gray-500">
+            <fa-icon [icon]="faClock"></fa-icon>
+          </div>
+        </div>
+        <div class="ml-2">
+          <span class="text-xxs text-gray-800 font-semibold">Last updated 01-04 12:00am.</span>
+        </div>
+      </div>
+
+      <div class="mt-1 mb-2 flex flex-row">
+        <div class="h-6 w-6 rounded bg-gray-300 flex justify-center items-center">
+          <div class="text-gray-500">
+            <fa-icon [icon]="faEnvelope"></fa-icon>
+          </div>
+        </div>
+        <div class="ml-2">
+          <span class="text-xxs text-gray-800 font-semibold">Email notifications are <strong>OFF</strong>.</span>
+        </div>
+      </div>
+
+<!--      <div class="flex flex-col">-->
+<!--        <div *ngIf="trackerDefinition.isAvailable" class="h-4 w-16 rounded bg-green-300 text-green-900 flex justify-center items-center"><span class="pill-text">Available</span></div>-->
+<!--        <div *ngIf="!trackerDefinition.isAvailable"  class="h-4 w-20 rounded bg-red-300 text-red-900 flex justify-center items-center"><span class="pill-text">Not available</span></div>-->
+<!--      </div>-->
+    </div>
+    <div class="w-2/5 h-full">
+      <app-tracker-chart></app-tracker-chart>
+    </div>
+    <div class="w-1/5 h-full">
+      <div class="p-4 pr-6 w-full h-full">
+        <div class="h-full flex flex-col items-center">
+          <div class="mb-2 w-full">
+            <a href="{{trackerDefinition.url}}" target="_blank">
+              <button mat-flat-button class="main-action-colour text-white rounded-none h-8 w-full">
+                <span class="text-xxs font-semibold button-text-adjustment">GO TO PRODUCT</span>
+              </button>
+            </a>
+          </div>
+
+          <button mat-flat-button class="bg-white text-gray-800 border border-gray-300 rounded-none h-8 w-full clear-button">
+            <span class="text-xxs font-semibold button-text-adjustment">SETTINGS</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
-
 </div>
 
-<div>
+<!--<div [ngClass]="trackerDefinition.isAvailable ? 'bg-green-200' : 'bg-red-200'" class="h-8 w-8 rounded-full bg-white flex justify-center items-center available-position">-->
+<!--  <div *ngIf="trackerDefinition.isAvailable" class="text-green-600" [matTooltip]="'Available to buy'">-->
+<!--    <fa-icon [icon]="faShoppingBag"></fa-icon>-->
+<!--  </div>-->
+<!--  <div *ngIf="!trackerDefinition.isAvailable" class="text-red-600" [matTooltip]="'Not available to buy'">-->
+<!--    <fa-icon [icon]="faShoppingBag" class="z-20"></fa-icon>-->
+<!--&lt;!&ndash;    <fa-icon class="cross-overlay text-red-400 z-10" [icon]="faTimes"></fa-icon>&ndash;&gt;-->
+<!--  </div>-->
+<!--</div>-->
 
-<mat-menu #menu="matMenu">
-  <button class="h-4" mat-menu-item><span class="h-full flex items-center">Settings</span></button>
-  <button class="h-4" mat-menu-item (click)="remove()"><span class="h-full flex items-center">Remove</span></button>
-</mat-menu>
-
-<!--<div class="p-3 max-h-40 tracker-height border rounded border-gray-300 bg-white">-->
-<!--  <div class="flex justify-between h-full">-->
-<!--    <div class="flex justify-between w-full">-->
-<!--      <div class="flex lg:flex-row w-full justify-between">-->
-<!--        <div class="flex flex-col ml-2">-->
-<!--          <div class="text-xs xl:w-64 lg:w-48 md:w-36 sm:w-24 text-overflow">{{trackerDefinition.title}}</div>-->
-<!--          <div class="mt-2">-->
-<!--            <div *ngIf="trackerDefinition.isAvailable" class="h-4 w-16 rounded bg-green-300 text-green-900 flex justify-center items-center"><span class="pill-text">Available</span></div>-->
-<!--            <div *ngIf="!trackerDefinition.isAvailable"  class="h-4 w-20 rounded bg-red-300 text-red-900 flex justify-center items-center"><span class="pill-text">Not available</span></div>-->
+<!--<div class="p-3 max-h-40 tracker-height rounded card-grey-border bg-white">-->
+<!--  <div class="flex flex-row justify-between h-full">-->
+<!--    <div class="flex flex-col ml-2 mr-4">-->
+<!--      <div class="h-4/5 w-full flex flex-row">-->
+<!--        <div class="w-2/3">-->
+<!--          <div class="flex flex-col">-->
+<!--&lt;!&ndash;            <div>&ndash;&gt;-->
+<!--&lt;!&ndash;              <div *ngIf="trackerDefinition.isAvailable" class="h-4 w-16 rounded bg-green-300 text-green-900 flex justify-center items-center"><span class="pill-text">Available</span></div>&ndash;&gt;-->
+<!--&lt;!&ndash;              <div *ngIf="!trackerDefinition.isAvailable"  class="h-4 w-20 rounded bg-red-300 text-red-900 flex justify-center items-center"><span class="pill-text">Not available</span></div>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--            <div class="flex flex-row">-->
+<!--              <div class="title-font">{{modifiedTitle}}</div>-->
+<!--            </div>-->
 <!--          </div>-->
 <!--        </div>-->
-<!--        <div class="flex flex-col mr-2">-->
-<!--          <div class="w-full flex justify-end">-->
-<!--            <div *ngIf="trackerDefinition.priceData.priceDifference > 0" class="h-4 w-12 flex rounded bg-red-300 text-red-900 justify-center items-center">-->
-<!--              <span class="text-lg"><mat-icon [inline]="true">arrow_drop_up</mat-icon></span>-->
-<!--              <span class="text-xs">{{priceDifference}}%</span>-->
+<!--        <div class="w-1/3">-->
+<!--          <div class="flex flex-col">-->
+<!--            <div class="w-full flex justify-end">-->
+<!--              <div *ngIf="trackerDefinition.priceData.priceDifference > 0" class="h-4 w-12 flex rounded bg-red-300 text-red-900 justify-center items-center">-->
+<!--                <span class="text-lg"><mat-icon [inline]="true">arrow_drop_up</mat-icon></span>-->
+<!--                <span class="text-xs">{{priceDifference}}%</span>-->
+<!--              </div>-->
+<!--              <div *ngIf="trackerDefinition.priceData.priceDifference == 0" class="h-4 w-12 flex rounded bg-gray-200 text-gray-900 justify-center items-center">-->
+<!--                <span class="text-xs">{{priceDifference}}%</span>-->
+<!--              </div>-->
+<!--              <div *ngIf="trackerDefinition.priceData.priceDifference < 0" class="h-4 w-12 flex rounded bg-green-300 text-green-900 justify-center items-center">-->
+<!--                <span class="text-lg"><mat-icon class="text-lg" [inline]="true">arrow_drop_down</mat-icon></span>-->
+<!--                <span class="text-xs">{{priceDifference}}%</span>-->
+<!--              </div>-->
 <!--            </div>-->
-<!--            <div *ngIf="trackerDefinition.priceData.priceDifference < 0" class="h-4 w-12 flex rounded bg-green-300 text-green-900 justify-center items-center">-->
-<!--              <span class="text-lg"><mat-icon class="text-lg" [inline]="true">arrow_drop_down</mat-icon></span>-->
-<!--              <span class="text-xs">{{priceDifference}}%</span>-->
+<!--            <div class="mt-1 w-full flex flex-col">-->
+<!--              <span *ngIf="trackerDefinition.priceData.priceDifference > 0" class="text-md text-red-500 font-medium text-right">{{trackerDefinition.id ? trackerDefinition.priceData.currentPricePretty : '...'}}</span>-->
+<!--              <span *ngIf="trackerDefinition.priceData.priceDifference == 0" class="text-md text-gray-800 font-medium text-right">{{trackerDefinition.id ? trackerDefinition.priceData.currentPricePretty : '...'}}</span>-->
+<!--              <span *ngIf="trackerDefinition.priceData.priceDifference < 0" class="text-md text-green-500 font-medium text-right">{{trackerDefinition.id ? trackerDefinition.priceData.currentPricePretty : '...'}}</span>-->
+<!--              <span class="text-xs text-gray-600 font-medium current-price-position text-right">{{trackerDefinition.id ? trackerDefinition.priceData.initialPricePretty : '...'}}</span>-->
 <!--            </div>-->
 <!--          </div>-->
-<!--          <span *ngIf="trackerDefinition.priceData.priceDifference > 0" class="text-lg text-red-500 font-medium">{{trackerDefinition.id ? trackerDefinition.priceData.currentPricePretty : '...'}}</span>-->
-<!--          <span *ngIf="trackerDefinition.priceData.priceDifference == 0" class="text-lg text-gray-800 font-medium">{{trackerDefinition.id ? trackerDefinition.priceData.currentPricePretty : '...'}}</span>-->
-<!--          <span *ngIf="trackerDefinition.priceData.priceDifference < 0" class="text-lg text-green-500 font-medium">{{trackerDefinition.id ? trackerDefinition.priceData.currentPricePretty : '...'}}</span>-->
-<!--          <span class="text-xs text-gray-400 font-medium current-price-position text-right">{{trackerDefinition.id ? trackerDefinition.priceData.initialPricePretty : '...'}}</span>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="h-1/5 flex flex-row justify-between">-->
+<!--          <div class="w-2/5 status-icon-container flex flex-row">-->
+<!--            <a class="text-gray-600 mr-2 cursor-pointer" href="{{trackerDefinition.url}}" target="_blank"><fa-icon [icon]="faExternalLinkAlt"></fa-icon></a>-->
+<!--&lt;!&ndash;        <div *ngIf="trackerDefinition.isAvailable" class="h-4 w-16 rounded bg-green-300 text-green-900 flex justify-center items-center"><span class="pill-text">Available</span></div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div *ngIf="!trackerDefinition.isAvailable"  class="h-4 w-20 rounded bg-red-300 text-red-900 flex justify-center items-center"><span class="pill-text">Not available</span></div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div *ngIf="trackerDefinition.isAvailable" class="text-green-600" [matTooltip]="'Available to buy'">&ndash;&gt;-->
+<!--&lt;!&ndash;              <fa-icon [icon]="faShoppingBag"></fa-icon>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div *ngIf="!trackerDefinition.isAvailable" class="text-red-600" [matTooltip]="'Not available to buy'">&ndash;&gt;-->
+<!--&lt;!&ndash;              <fa-icon [icon]="faShoppingBag"></fa-icon>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--          </div>-->
+<!--        <div class="w-1/5 flex justify-end items-end">-->
+<!--          <div class="flex flex-row">-->
+<!--            <div class="text-gray-600 mr-2 opacity-30">-->
+<!--              <fa-icon [icon]="faChartArea"></fa-icon>-->
+<!--            </div>-->
+<!--            <div class="text-gray-600 text-sm cursor-pointer">-->
+<!--              <fa-icon [matMenuTriggerFor]="menu" [icon]="faEllipsisH"></fa-icon>-->
+<!--            </div>-->
+
+<!--          </div>-->
 <!--        </div>-->
 <!--      </div>-->
 <!--    </div>-->
 
-<!--    <div *ngIf="!shouldDisplaySkeletonImage" class="image-container flex justify-center items-baseline">-->
-<!--      <img class="tracker-image" src="{{trackerDefinition.imageUrl}}" (error)="displaySkeletonImage()">-->
+<!--    <div class="w-1/3">-->
+<!--      <div *ngIf="!shouldDisplaySkeletonImage" class="image-container flex justify-center items-baseline">-->
+<!--        <img class="tracker-image" src="{{trackerDefinition.imageUrl}}" (error)="displaySkeletonImage()">-->
+<!--      </div>-->
+<!--      <div *ngIf="shouldDisplaySkeletonImage" [ngClass]="{'animate-pulse': !trackerDefinition.id}"  class="bg-gray-200 image-skeleton rounded flex justify-center items-center">-->
+<!--        <span class="skeleton-font-size text-gray-400">-->
+<!--          <fa-icon [icon]="faImage"></fa-icon>-->
+<!--        </span>-->
+<!--      </div>-->
+<!--      <div *ngIf="!trackerDefinition.id" class="animate-pulse bg-gray-200 image-skeleton rounded flex justify-center items-center">-->
+<!--        <span class="skeleton-font-size text-gray-400">-->
+<!--          <fa-icon [icon]="faImage"></fa-icon>-->
+<!--        </span>-->
+<!--      </div>-->
 <!--    </div>-->
-<!--    <div *ngIf="shouldDisplaySkeletonImage"  class="bg-gray-200 image-skeleton flex justify-center items-center">-->
-<!--      <span class="skeleton-font-size text-gray-400">-->
-<!--        <sl-icon name="question"></sl-icon>-->
-<!--      </span>-->
-<!--    </div>-->
-
-
-<!--&lt;!&ndash;    <button mat-icon-button&ndash;&gt;-->
-<!--&lt;!&ndash;            class="h-4"&ndash;&gt;-->
-<!--&lt;!&ndash;            (click)="remove()"&ndash;&gt;-->
-<!--&lt;!&ndash;            [disableRipple]="true">&ndash;&gt;-->
-<!--&lt;!&ndash;      <mat-icon class="text-gray-400 text-sm">cancel</mat-icon>&ndash;&gt;-->
-<!--&lt;!&ndash;    </button>&ndash;&gt;-->
 <!--  </div>-->
 
-<!--  <div>-->
+<!--</div>-->
 
-<!--    <span *ngIf="!trackerDefinition.id" class="text-xs text-gray-500 mr-1">Getting your price...</span>-->
+<!--<div>-->
 
+<!--<mat-menu #menu="matMenu">-->
+<!--  <button class="h-4" mat-menu-item><span class="h-full flex items-center">Settings</span></button>-->
+<!--  <button class="h-4" mat-menu-item (click)="remove()"><span class="h-full flex items-center">Remove</span></button>-->
+<!--</mat-menu>-->
 
-<!--  </div>-->
-
-
-<!--  <div class="flex justify-between mt-4">-->
-<!--&lt;!&ndash;    <div>&ndash;&gt;-->
-<!--&lt;!&ndash;      <h4>Datapoints for graph</h4>&ndash;&gt;-->
-<!--&lt;!&ndash;      <ng-container *ngFor="let datapoint of trackerDefinition.datapoints">&ndash;&gt;-->
-<!--&lt;!&ndash;        <p class="text-sm">{{datapoint.date}} - {{datapoint.price}}</p>&ndash;&gt;-->
-<!--&lt;!&ndash;      </ng-container>&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="p-3 max-h-40 tracker-height border rounded border-gray-300 bg-white">&ndash;&gt;-->
+<!--&lt;!&ndash;  <div class="flex justify-between h-full">&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="flex justify-between w-full">&ndash;&gt;-->
+<!--&lt;!&ndash;      <div class="flex lg:flex-row w-full justify-between">&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="flex flex-col ml-2">&ndash;&gt;-->
+<!--&lt;!&ndash;          <div class="text-xs xl:w-64 lg:w-48 md:w-36 sm:w-24 text-overflow">{{trackerDefinition.title}}</div>&ndash;&gt;-->
+<!--&lt;!&ndash;          <div class="mt-2">&ndash;&gt;-->
+<!--&lt;!&ndash;            <div *ngIf="trackerDefinition.isAvailable" class="h-4 w-16 rounded bg-green-300 text-green-900 flex justify-center items-center"><span class="pill-text">Available</span></div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div *ngIf="!trackerDefinition.isAvailable"  class="h-4 w-20 rounded bg-red-300 text-red-900 flex justify-center items-center"><span class="pill-text">Not available</span></div>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="flex flex-col mr-2">&ndash;&gt;-->
+<!--&lt;!&ndash;          <div class="w-full flex justify-end">&ndash;&gt;-->
+<!--&lt;!&ndash;            <div *ngIf="trackerDefinition.priceData.priceDifference > 0" class="h-4 w-12 flex rounded bg-red-300 text-red-900 justify-center items-center">&ndash;&gt;-->
+<!--&lt;!&ndash;              <span class="text-lg"><mat-icon [inline]="true">arrow_drop_up</mat-icon></span>&ndash;&gt;-->
+<!--&lt;!&ndash;              <span class="text-xs">{{priceDifference}}%</span>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            <div *ngIf="trackerDefinition.priceData.priceDifference < 0" class="h-4 w-12 flex rounded bg-green-300 text-green-900 justify-center items-center">&ndash;&gt;-->
+<!--&lt;!&ndash;              <span class="text-lg"><mat-icon class="text-lg" [inline]="true">arrow_drop_down</mat-icon></span>&ndash;&gt;-->
+<!--&lt;!&ndash;              <span class="text-xs">{{priceDifference}}%</span>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;          </div>&ndash;&gt;-->
+<!--&lt;!&ndash;          <span *ngIf="trackerDefinition.priceData.priceDifference > 0" class="text-lg text-red-500 font-medium">{{trackerDefinition.id ? trackerDefinition.priceData.currentPricePretty : '...'}}</span>&ndash;&gt;-->
+<!--&lt;!&ndash;          <span *ngIf="trackerDefinition.priceData.priceDifference == 0" class="text-lg text-gray-800 font-medium">{{trackerDefinition.id ? trackerDefinition.priceData.currentPricePretty : '...'}}</span>&ndash;&gt;-->
+<!--&lt;!&ndash;          <span *ngIf="trackerDefinition.priceData.priceDifference < 0" class="text-lg text-green-500 font-medium">{{trackerDefinition.id ? trackerDefinition.priceData.currentPricePretty : '...'}}</span>&ndash;&gt;-->
+<!--&lt;!&ndash;          <span class="text-xs text-gray-400 font-medium current-price-position text-right">{{trackerDefinition.id ? trackerDefinition.priceData.initialPricePretty : '...'}}</span>&ndash;&gt;-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+<!--&lt;!&ndash;      </div>&ndash;&gt;-->
 <!--&lt;!&ndash;    </div>&ndash;&gt;-->
 
-<!--    <div class="">-->
+<!--&lt;!&ndash;    <div *ngIf="!shouldDisplaySkeletonImage" class="image-container flex justify-center items-baseline">&ndash;&gt;-->
+<!--&lt;!&ndash;      <img class="tracker-image" src="{{trackerDefinition.imageUrl}}" (error)="displaySkeletonImage()">&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;    <div *ngIf="shouldDisplaySkeletonImage"  class="bg-gray-200 image-skeleton flex justify-center items-center">&ndash;&gt;-->
+<!--&lt;!&ndash;      <span class="skeleton-font-size text-gray-400">&ndash;&gt;-->
+<!--&lt;!&ndash;        <sl-icon name="question"></sl-icon>&ndash;&gt;-->
+<!--&lt;!&ndash;      </span>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
 
-<!--    </div>-->
-<!--  </div>-->
+
+<!--&lt;!&ndash;&lt;!&ndash;    <button mat-icon-button&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            class="h-4"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            (click)="remove()"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            [disableRipple]="true">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;      <mat-icon class="text-gray-400 text-sm">cancel</mat-icon>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    </button>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;  <div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <span *ngIf="!trackerDefinition.id" class="text-xs text-gray-500 mr-1">Getting your price...</span>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;  <div class="flex justify-between mt-4">&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    <div>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;      <h4>Datapoints for graph</h4>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;      <ng-container *ngFor="let datapoint of trackerDefinition.datapoints">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;        <p class="text-sm">{{datapoint.date}} - {{datapoint.price}}</p>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;      </ng-container>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;    </div>&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;    <div class="">&ndash;&gt;-->
+
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->
 
 
 
-<!--  <ng-container *ngIf="!trackerDefinition.id">-->
-<!--    <mat-progress-bar class="mt-3" mode="indeterminate"></mat-progress-bar>-->
-<!--  </ng-container>-->
-<!--</div>-->
+<!--&lt;!&ndash;  <ng-container *ngIf="!trackerDefinition.id">&ndash;&gt;-->
+<!--&lt;!&ndash;    <mat-progress-bar class="mt-3" mode="indeterminate"></mat-progress-bar>&ndash;&gt;-->
+<!--&lt;!&ndash;  </ng-container>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->

@@ -3,7 +3,7 @@ import {TrackerService} from '../../../../services/tracker.service';
 import {take} from 'rxjs/operators';
 import {ProductTracker} from '../../../../models/ProductTracker';
 import {PriceResponse} from '../../../../models/ScrapeResult'
-import { faEllipsisH, faChartArea, faShoppingBag, faExternalLinkAlt, faImage, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsisH, faChartArea, faShoppingBag, faExternalLinkAlt, faImage, faTimes, faClock, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -24,6 +24,8 @@ export class ProductTrackerComponent implements OnInit, OnChanges {
   public faExternalLinkAlt = faExternalLinkAlt;
   public faImage = faImage;
   public faTimes = faTimes;
+  public faClock = faClock;
+  public faEnvelope = faEnvelope;
 
   public prettyPrice!: string;
   public loading: boolean = false;

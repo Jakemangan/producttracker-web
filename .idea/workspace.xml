@@ -5,26 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e4fe659-db56-4444-8295-16a28bae2878" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/services/admin.guard.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/services/admin.guard.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/angular.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/user-menu/user-menu.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/user-menu/user-menu.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/user-menu/user-menu.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/user-menu/user-menu.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/nav-bar/nav-bar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/orphan-components/nav-bar/nav-bar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/add-tracker-dialog/add-tracker-dialog.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/add-tracker-dialog/add-tracker-dialog.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/add-tracker-dialog/add-tracker-dialog.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/add-tracker-dialog/add-tracker-dialog.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/product-tracker/product-tracker.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/product-tracker/product-tracker.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/product-tracker/product-tracker.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/product-tracker/product-tracker.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/product-tracker/product-tracker.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/product-tracker/product-tracker.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-main.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-main.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/services/tracker.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/tracker.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-main.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-main.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +54,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/node_modules/@shoelace-style/shoelace/dist/vscode.html-custom-data.json" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../jmstockanalysis-web" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
@@ -138,6 +129,7 @@
       <workItem from="1616499406200" duration="9036000" />
       <workItem from="1616514636453" duration="3299000" />
       <workItem from="1616593479056" duration="4415000" />
+      <workItem from="1617296216857" duration="21462000" />
     </task>
     <servers />
   </component>
@@ -164,7 +156,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-main.component.ts</url>
-          <line>106</line>
+          <line>103</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

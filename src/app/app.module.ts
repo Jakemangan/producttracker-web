@@ -28,6 +28,9 @@ import {MatChipsModule} from '@angular/material/chips';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 import {MatTooltip, MatTooltipModule} from '@angular/material/tooltip';
 import { AdminPanelComponent } from './components/pages/admin-panel/admin-panel.component';
+import {ChartsModule} from 'ng2-charts';
+import { TrackerChartComponent } from './components/pages/tracker-main/product-tracker/tracker-chart/tracker-chart.component';
+import {NgApexchartsModule} from 'ng-apexcharts';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -43,7 +46,8 @@ import { AdminPanelComponent } from './components/pages/admin-panel/admin-panel.
     AuthButtonComponent,
     NavBarComponent,
     UserMenuComponent,
-    AdminPanelComponent
+    AdminPanelComponent,
+    TrackerChartComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +63,8 @@ import { AdminPanelComponent } from './components/pages/admin-panel/admin-panel.
     MatIconModule,
     MatTooltipModule,
     MatChipsModule,
+    ChartsModule,
+    NgApexchartsModule,
     AuthModule.forRoot({
       ...env.auth,
       httpInterceptor: {

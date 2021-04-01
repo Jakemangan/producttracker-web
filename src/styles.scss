@@ -3,12 +3,14 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
 html, body {
   min-height: 100vh;
 }
 
 body {
-  background-color: #f3f3f3;
+  //background-color: #f3f3f3;
 }
 
 @media only screen and (min-width: 640px){
@@ -31,16 +33,24 @@ body {
 
 @media only screen and (min-width: 1024px){
   .container{
-    max-width: 924px;
+    max-width: 876px;
   }
 }
 
 @media only screen and (min-width: 1280px){
   .container{
-    max-width: 1020px;
+    max-width: 876px;
   }
 }
 
 .card-grey-border{
   border: 1px solid #dee2e6;
+}
+
+span{
+  font-family: 'Open Sans', sans-serif;
+}
+
+.main-action-colour{
+  background-color: #5279c1;
 }

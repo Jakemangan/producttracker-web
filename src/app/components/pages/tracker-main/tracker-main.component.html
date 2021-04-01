@@ -2,27 +2,30 @@
 
 <div class="">
   <div class="container mt-4 ml-auto mr-auto">
-
-
-
-<!--    <div class="flex justify-between items-center mb-5">-->
-<!--      <p class="text-sm text-gray-600 ">Products: {{activeTrackers.length}}/2</p>-->
-<!--    </div>-->
-
-    <div class="w-full p-3 card-grey-border bg-white rounded">
+    <h1>Overview</h1>
+    <div class="w-full p-3 pl-6 pr-6 pb-2 card-grey-border bg-white">
       <div class="flex flex-row justify-between items-center">
         <div class="text-sm text-gray-600 ">Welcome back, <span class="text-gray-800 font-medium">{{_userService.auth0UserData.email}}</span> - Let's get started.</div>
         <button mat-flat-button
-                class="bg-blue-500 text-white shadow border border-white"
-                (click)="openAddTrackerDialog()" [disabled]="activeTrackers.length >= 22">Add new tracker</button>
+                class="main-action-colour text-white shadow border border-white text-xs font-semibold w-40"
+                (click)="openAddTrackerDialog()" [disabled]="activeTrackers.length >= 22">ADD NEW TRACKER</button>
       </div>
       <div class="">
-        <p class="text-sm text-gray-600 ">You're currently using {{activeTrackers.length}} out of 2 trackers.</p>
+        <div class="">
+          <span class="text-xs text-gray-600">You're using <strong>{{activeTrackers.length}}</strong> out of <strong>2</strong> trackers.</span>
+        </div>
+        <div>
+          <span class="text-xs text-gray-600">Currently, <strong>2</strong> out of <strong>{{activeTrackers.length}}</strong> of your trackers have a discounted price.</span>
+        </div>
       </div>
     </div>
 
-    <div class="tracker-container mt-5">
-      <ng-container *ngFor="let tracker of activeTrackers; last as lastChild">
+    <div class="mt-3">
+      <h3>Trackers</h3>
+    </div>
+
+    <div class="tracker-container mt-2">
+      <ng-container *ngFor="let tracker of activeTrackers;">
         <app-product-tracker
           class="flex-1 mb-4 sm:mb-0"
           [trackerDefinition]="tracker"
