@@ -1,6 +1,6 @@
 <div *ngIf="_userService.auth0UserData">
   <div class="flex flex-row"
-  [matMenuTriggerFor]="menu" 
+  [matMenuTriggerFor]="menu"
   (menuOpened)="menuOpened()"
   (menuClosed)="menuClosed()">
     <img src="{{_userService.auth0UserData.picture}}"
@@ -13,6 +13,9 @@
 
   <mat-menu #menu="matMenu">
     <button class="h-4" mat-menu-item (click)="logout()"><span class="h-full flex items-center">Profile</span></button>
+    <button *ngIf="isUserAdmin" class="h-4" mat-menu-item [routerLink]="'/admin'">
+      <span class="h-full flex items-center">Admin</span>
+    </button>
     <button class="h-4" mat-menu-item (click)="logout()"><span class="h-full flex items-center">Settings</span></button>
     <button class="h-4" mat-menu-item (click)="logout()"><span class="h-full flex items-center">Logout</span></button>
   </mat-menu>

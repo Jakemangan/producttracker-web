@@ -24,7 +24,10 @@ import {AuthResolver} from './services/auth.resolver';
 import { NavBarComponent } from './components/orphan-components/nav-bar/nav-bar.component';
 import { UserMenuComponent } from './components/orphan-components/auth-button/user-menu/user-menu.component'
 import {MatMenuModule} from '@angular/material/menu';
-import {MatChipsModule} from '@angular/material/chips'
+import {MatChipsModule} from '@angular/material/chips';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import {MatTooltip, MatTooltipModule} from '@angular/material/tooltip';
+import { AdminPanelComponent } from './components/pages/admin-panel/admin-panel.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -39,7 +42,8 @@ import {MatChipsModule} from '@angular/material/chips'
     AuthButtonComponent,
     AuthButtonComponent,
     NavBarComponent,
-    UserMenuComponent
+    UserMenuComponent,
+    AdminPanelComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +57,7 @@ import {MatChipsModule} from '@angular/material/chips'
     MatMenuModule,
     MatDialogModule,
     MatIconModule,
+    MatTooltipModule,
     MatChipsModule,
     AuthModule.forRoot({
       ...env.auth,
@@ -67,7 +72,8 @@ import {MatChipsModule} from '@angular/material/chips'
           }
         ]
       }
-    })
+    }),
+    FontAwesomeModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

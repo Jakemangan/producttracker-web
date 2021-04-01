@@ -35,13 +35,25 @@ export class UserService {
   // }
 
   getCurrentUserData(): Observable<UserData>{
-    return this.auth.user$.pipe(take(1), switchMap(user => {
-      if(user){
-        return this.getUserData(user.email);
-      } else {
-        return EMPTY;
-      }
-    }))
+    if(this.currentUserData){
+      return of(this.currentUserData);
+    } else {
+      return this.auth.user$.pipe(take(1), switchMap(user => {
+        if(user){
+          return this.getUserData(user.email);
+        } else {
+          return EMPTY;
+        }
+      }))
+    }
+  }
+
+  isUserAdmin(): boolean {
+    if(this.currentUserData){
+      return this.currentUserData.userRole === 0;
+    } else {
+      return false;
+    }
   }
 
   loginWithRedirect(redirect: string): void {

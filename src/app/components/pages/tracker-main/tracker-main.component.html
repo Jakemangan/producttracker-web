@@ -5,16 +5,19 @@
 
 
 
-    <div class="flex justify-between items-center mb-5">
-      <p class="text-sm text-gray-600 ">Products: {{activeTrackers.length}}/2</p>
-      <button mat-flat-button
-              class="bg-blue-500 text-white shadow border border-white"
-              (click)="openAddTrackerDialog()" [disabled]="activeTrackers.length >= 22">Add new tracker</button>
-    </div>
+<!--    <div class="flex justify-between items-center mb-5">-->
+<!--      <p class="text-sm text-gray-600 ">Products: {{activeTrackers.length}}/2</p>-->
+<!--    </div>-->
 
-    <div class="w-full p-3 border border-gray-300 bg-white rounded">
+    <div class="w-full p-3 card-grey-border bg-white rounded">
       <div class="flex flex-row justify-between items-center">
         <div class="text-sm text-gray-600 ">Welcome back, <span class="text-gray-800 font-medium">{{_userService.auth0UserData.email}}</span> - Let's get started.</div>
+        <button mat-flat-button
+                class="bg-blue-500 text-white shadow border border-white"
+                (click)="openAddTrackerDialog()" [disabled]="activeTrackers.length >= 22">Add new tracker</button>
+      </div>
+      <div class="">
+        <p class="text-sm text-gray-600 ">You're currently using {{activeTrackers.length}} out of 2 trackers.</p>
       </div>
     </div>
 

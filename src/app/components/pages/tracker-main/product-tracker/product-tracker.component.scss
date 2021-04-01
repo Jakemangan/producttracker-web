@@ -58,7 +58,7 @@
 }
 
 .skeleton-font-size{
-  font-size: 3rem;
+  font-size: 4rem;
 }
 
 .mat-chip.mat-standard-chip{
@@ -69,4 +69,27 @@
   position: relative;
   top: 1px;
   font-size: 0.7rem;
+}
+
+.status-icon-container{
+  position: relative;
+  top: 4px;
+}
+
+.title-font{
+  font-size: 0.8rem;
+}
+
+.available-position{
+  position: relative;
+  top: 18px;
+  right: 15px;
+}
+
+.cross-overlay{
+  position: relative;
+  font-size: 27px;
+  right: 6px;
+  top: 1px;
+  display: inline;
 }

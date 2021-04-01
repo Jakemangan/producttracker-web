@@ -10,10 +10,12 @@ import {UserService} from '../../../../services/user.service';
 export class UserMenuComponent implements OnInit {
 
   menuOpen = false;
+  isUserAdmin = false;
 
   constructor(public _userService: UserService) { }
 
   ngOnInit(): void {
+    this.isUserAdmin = this._userService.isUserAdmin();
   }
 
   logout(){

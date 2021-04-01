@@ -4,12 +4,22 @@ import {HomeComponent} from './components/pages/home/home.component';
 import {TrackerMainComponent} from './components/pages/tracker-main/tracker-main.component';
 import {AuthGuard} from '@auth0/auth0-angular';
 import {AuthResolver} from './services/auth.resolver';
+import {AdminPanelComponent} from './components/pages/admin-panel/admin-panel.component';
+import {AdminGuard} from './services/admin.guard';
 
 const routes: Routes = [
   {
     path: 'app',
     component: TrackerMainComponent,
     canActivate: [AuthGuard],
+    resolve: {
+      cache: AuthResolver
+    }
+  },
+  {
+    path: 'admin',
+    component: AdminPanelComponent,
+    canActivate: [AuthGuard, AdminGuard],
     resolve: {
       cache: AuthResolver
     }

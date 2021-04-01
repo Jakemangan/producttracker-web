@@ -32,4 +32,12 @@ export class TrackerService {
     return this._http.delete<void>(url);
   }
 
+  checkHostnameIsConfirmedWorking(urlToCheck: string): Observable<boolean> {
+    let url = this.baseUrl + "/tracker/hostname/confirmed";
+    let body = {
+      "url": urlToCheck
+    };
+    return this._http.post<boolean>(url, body);
+  }
+
 }
