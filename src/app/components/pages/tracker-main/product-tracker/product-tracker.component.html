@@ -8,7 +8,7 @@
       <div class="flex flex-col-reverse mt-auto mb-auto">
         <div class="flex flex-row justify-end">
 <!--          <span class="text-xs text-gray-500">Price</span>-->
-          <div *ngIf="trackerDefinition.priceData.priceDifference > 0" class="h-4 w-12 flex rounded bg-red-300 text-red-900 justify-center items-center">
+          <div *ngIf="trackerDefinition.priceData.priceDifference > 0" class="h-4 w-12 flex rounded bg-yellow-300 text-yellow-900 justify-center items-center">
             <span class="text-base"><mat-icon [inline]="true">arrow_drop_up</mat-icon></span>
             <span class="text-xxs font-semibold">{{priceDifference}}%</span>
           </div>
@@ -21,7 +21,7 @@
           </div>
         </div>
         <div class="flex flex-row justify-between">
-          <span *ngIf="trackerDefinition.priceData.priceDifference > 0" class="text-base text-red-500 text-right font-semibold">{{trackerDefinition.id ? trackerDefinition.priceData.currentPricePretty : '...'}}</span>
+          <span *ngIf="trackerDefinition.priceData.priceDifference > 0" class="text-base text-yellow-500 text-right font-semibold">{{trackerDefinition.id ? trackerDefinition.priceData.currentPricePretty : '...'}}</span>
           <span *ngIf="trackerDefinition.priceData.priceDifference == 0" class="text-base text-gray-800 text-right font-semibold">{{trackerDefinition.id ? trackerDefinition.priceData.currentPricePretty : '...'}}</span>
           <span *ngIf="trackerDefinition.priceData.priceDifference < 0" class="text-base text-green-500 text-right font-semibold">{{trackerDefinition.id ? trackerDefinition.priceData.currentPricePretty : '...'}}</span>
           <span class="ml-1 text-xs text-gray-400 font-semibold flex items-end initial-price-position">/ {{trackerDefinition.id ? trackerDefinition.priceData.initialPricePretty : '...'}}</span>
@@ -47,13 +47,16 @@
             </span>
       </div>
     </div>
+    <div class="w-2/5 h-full">
+      <app-tracker-chart [priceDifference]="trackerDefinition.priceData.priceDifference"></app-tracker-chart>
+    </div>
     <div class="w-1/5 h-full flex flex-col justify-start items-start">
       <div class="mb-1 mt-4 flex flex-row">
-        <div [ngClass]="trackerDefinition.isAvailable ? 'bg-green-300' : 'bg-red-300'" class="h-6 w-6 rounded bg-white flex justify-center items-center">
-          <div *ngIf="trackerDefinition.isAvailable" class="text-green-600 text-xs">
+        <div [ngClass]="trackerDefinition.isAvailable ? 'bg-blue-300' : 'bg-yellow-300'" class="h-6 w-6 rounded bg-white flex justify-center items-center">
+          <div *ngIf="trackerDefinition.isAvailable" class="text-blue-600">
             <fa-icon [icon]="faShoppingBag"></fa-icon>
           </div>
-          <div *ngIf="!trackerDefinition.isAvailable" class="text-red-600">
+          <div *ngIf="!trackerDefinition.isAvailable" class="text-yellow-600">
             <fa-icon [icon]="faShoppingBag" class="z-20"></fa-icon>
             <!--    <fa-icon class="cross-overlay text-red-400 z-10" [icon]="faTimes"></fa-icon>-->
           </div>
@@ -101,22 +104,19 @@
 <!--        <div *ngIf="!trackerDefinition.isAvailable"  class="h-4 w-20 rounded bg-red-300 text-red-900 flex justify-center items-center"><span class="pill-text">Not available</span></div>-->
 <!--      </div>-->
     </div>
-    <div class="w-2/5 h-full">
-      <app-tracker-chart></app-tracker-chart>
-    </div>
     <div class="w-1/5 h-full">
       <div class="p-4 pr-6 w-full h-full">
-        <div class="h-full flex flex-col items-center">
+        <div class="h-full flex flex-col justify-between items-end">
           <div class="mb-2 w-full">
             <a href="{{trackerDefinition.url}}" target="_blank">
-              <button mat-flat-button class="main-action-colour text-white rounded-none h-8 w-full">
-                <span class="text-xxs font-semibold button-text-adjustment">GO TO PRODUCT</span>
+              <button class="main-action-colour hover:bg-blue-400 text-white rounded-none h-8 w-full">
+                <span class="text-xxs font-semibold ">OPEN PRODUCT PAGE</span>
               </button>
             </a>
           </div>
 
-          <button mat-flat-button class="bg-white text-gray-800 border border-gray-300 rounded-none h-8 w-full clear-button">
-            <span class="text-xxs font-semibold button-text-adjustment">SETTINGS</span>
+          <button class="bg-white text-gray-500 border border-gray-300 rounded-none h-8 clear-button w-10 hover:cursor-pointer hover:bg-gray-100">
+              <span class="w-full h-full flex justify-center items-center"><fa-icon [icon]="faCog"></fa-icon></span>
           </button>
         </div>
       </div>

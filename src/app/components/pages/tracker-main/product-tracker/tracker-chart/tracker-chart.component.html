@@ -1,14 +1,30 @@
-<div class="h-full flex flex-col justify-end">
-  <div class="h-1/2 w-full p-4 ">
-    <canvas baseChart class="h-full w-full scale-75" [height]=""
-            [datasets]="lineChartData"
-            [labels]="lineChartLabels"
-            [options]="lineChartOptions"
-            [colors]="lineChartColors"
-            [legend]="lineChartLegend"
-            [chartType]="lineChartType"
-            [plugins]="lineChartPlugins">
-    </canvas>
-  </div>
-</div>
+<div class="h-full flex justify-center items-center">
+  <div class="h-full flex flex-col justify-between border-l border-r border-gray-200">
+    <div class="h-1/5 w-full p-1 flex flex-row justify-center border-b border-gray-200">
+      <div class="flex flex-row justify-between w-full items-center p-2">
+        <span class="text-xs font-semibold">Trend</span>
+        <div class="flex flex-row justify-around w-2/5">
+          <span class="text-xxs font-bold text-gray-500">1w</span>
+          <span class="text-xxs font-bold text-gray-300">2w</span>
+          <span class="text-xxs font-bold text-gray-300">1m</span>
+          <span class="text-xxs font-bold text-gray-300">3m</span>
+        </div>
+      </div>
 
+
+    </div>
+    <div class="h-3/5 w-full">
+      <canvas baseChart class="h-full w-full scale-75" [height]=""
+              [datasets]="lineChartData"
+              [labels]="lineChartLabels"
+              [options]="lineChartOptions"
+              [colors]="lineChartColors"
+              [legend]="lineChartLegend"
+              [chartType]="lineChartType"
+              [plugins]="lineChartPlugins">
+      </canvas>
+    </div>
+  </div>
+
+
+</div>

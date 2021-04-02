@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {ChartDataSets, ChartOptions, ChartType, ChartTooltipPositioner} from 'chart.js';
 import {
   ChartComponent,
@@ -16,14 +16,18 @@ import {Color, Label} from 'ng2-charts';
 })
 export class TrackerChartComponent implements OnInit {
 
+  @Input() priceDifference: number;
+  private borderColor: string;
+  private backgroundColor: string;
+
   public lineChartData: ChartDataSets[] = [
-    { data: [65, 65, 65, 43, 267, 22],
+    { data: [65, 65, 65, 65, 65, 65, 233, 233, 233, 233, 233],
       label: 'Series A',
       backgroundColor: "",
 
     },
   ];
-  public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  public lineChartLabels: Label[] = ['65', '65', '65', '65', '65', '65', '233', '233', '233', '233', '233'];
   public lineChartOptions: (ChartOptions & { annotation: any }) = {
     responsive: true,
     annotation: "",
@@ -43,8 +47,10 @@ export class TrackerChartComponent implements OnInit {
     },
     elements: {
       point: {
-        radius: 3,
-        hoverRadius: 7
+        radius: 2,
+        hoverRadius: 4,
+        pointStyle: 'circle',
+
       },
       line: {
 
@@ -56,6 +62,8 @@ export class TrackerChartComponent implements OnInit {
         display: false,
         ticks: {
           display: false,
+          max: 15,
+          min: -2,
         },
         gridLines: {
           display: true,
@@ -76,13 +84,7 @@ export class TrackerChartComponent implements OnInit {
       }]
     }
   };
-  public lineChartColors: Color[] = [
-    {
-      borderColor: 'rgba(255,0,0,1.0)',
-      borderWidth: 3,
-      backgroundColor: 'rgba(255,0,0,0.3)',
-    },
-  ];
+  public lineChartColors: Color[] = [];
   public lineChartLegend = false;
   public lineChartType: ChartType = 'line';
   public lineChartPlugins: any = [];
@@ -92,6 +94,21 @@ export class TrackerChartComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.borderColor = 'rgb(82, 121, 193)'
+    this.backgroundColor = 'rgba(216,231,255, 0.3)'
+    // if(this.priceDifference < 0){
+    //   this.borderColor = 'rgb(0,233,0)'
+    //   this.backgroundColor = 'rgba(82,255,82,0.3)'
+    // } else {
+    //   this.borderColor = 'rgb(255,0,0)'
+    //   this.backgroundColor = 'rgb(255,161,161)'
+    // }
+
+    this.lineChartColors[0] = {
+      borderColor: this.borderColor,
+      borderWidth: 3,
+      backgroundColor: this.backgroundColor,
+    }
   }
 
 }
