@@ -1,9 +1,9 @@
-<div *ngIf="_userService.auth0UserData">
+<div *ngIf="_firebaseAuth.isLoggedIn">
   <div class="flex flex-row"
   [matMenuTriggerFor]="menu"
   (menuOpened)="menuOpened()"
   (menuClosed)="menuClosed()">
-    <img src="{{_userService.auth0UserData.picture}}"
+    <img src="null"
     class="h-8 rounded-2xl"
     alt="avatar"
     />

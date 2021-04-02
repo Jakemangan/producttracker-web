@@ -1,7 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {AuthService} from '@auth0/auth0-angular';
-import {DOCUMENT} from '@angular/common';
 import {UserService} from '../../../../services/user.service';
+import {FirebaseAuthService} from '../../../../services/firebase-auth.service';
 
 @Component({
   selector: 'app-logout-button',
@@ -10,12 +9,12 @@ import {UserService} from '../../../../services/user.service';
 })
 export class LogoutButtonComponent implements OnInit {
   constructor(
-    private _userService: UserService
+    private _firebaseAuth: FirebaseAuthService
   ) {}
 
   ngOnInit(): void {}
 
   logout(): void {
-    this._userService.logout();
+    this._firebaseAuth.logout();
   }
 }

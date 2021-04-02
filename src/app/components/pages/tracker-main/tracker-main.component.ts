@@ -5,8 +5,8 @@ import {MatDialog} from '@angular/material/dialog';
 import {TrackerService} from '../../../services/tracker.service';
 import {catchError, switchMap, take} from 'rxjs/operators';
 import {EMPTY, of} from 'rxjs';
-import {AuthService} from '@auth0/auth0-angular';
 import {UserService} from '../../../services/user.service';
+import {FirebaseAuthService} from '../../../services/firebase-auth.service';
 
 @Component({
   selector: 'app-tracker-main',
@@ -19,25 +19,17 @@ export class TrackerMainComponent implements OnInit {
 
   constructor(public dialog: MatDialog,
               private _trackerService: TrackerService,
-              private _auth: AuthService,
-              public _userService: UserService) { }
+              public _userService: UserService,
+              public firebaseAuth: FirebaseAuthService) { }
 
   ngOnInit(): void {
 
-    // this._auth.isAuthenticated$.subscribe(res => {
-    //   if(res){
-    //     console.log("Logged in - getting trackers")
-    console.log("Auth0: ", this._userService.auth0UserData);
-        this._trackerService.getAllActiveTrackersByUserId(this._userService.currentUserData.id).subscribe((res: ProductTracker[]) => {
-          if(res && res.length > 0){
-            res.forEach(res => this.activeTrackers.push(res));
-          }
-        })
-      // } else {
-      //   console.log("Not logged in - redirecting")
-      //   this._userService.loginWithRedirect("/tracker")
-      // }
-    // })
+        // this._trackerService.getAllActiveTrackersByUserId(this._userService.currentUserData.id).subscribe((res: ProductTracker[]) => {
+        //   if(res && res.length > 0){
+        //     res.forEach(res => this.activeTrackers.push(res));
+        //   }
+        // })
+
   }
 
   test(){

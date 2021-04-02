@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {UserService} from '../../../../services/user.service';
+import {FirebaseAuthService} from '../../../../services/firebase-auth.service';
 
 @Component({
   selector: 'app-user-menu',
@@ -12,14 +13,14 @@ export class UserMenuComponent implements OnInit {
   menuOpen = false;
   isUserAdmin = false;
 
-  constructor(public _userService: UserService) { }
+  constructor(public _firebaseAuth: FirebaseAuthService) { }
 
   ngOnInit(): void {
-    this.isUserAdmin = this._userService.isUserAdmin();
+    // this.isUserAdmin = this._userService.isUserAdmin();
   }
 
   logout(){
-    this._userService.logout();
+    this._firebaseAuth.logout();
   }
 
   menuOpened(){

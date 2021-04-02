@@ -1,7 +1,7 @@
 <div class="flex justify-center">
-  <app-login-button *ngIf="(auth.isAuthenticated$ | async) === false">
+  <app-login-button *ngIf="(firebaseAuth.isLoggedIn) === false">
   </app-login-button>
-  <app-user-menu *ngIf="auth.isAuthenticated$ | async">
+  <app-user-menu *ngIf="firebaseAuth.isLoggedIn">
   </app-user-menu>
 </div>
 

@@ -13,14 +13,10 @@ import { AddTrackerDialogComponent } from './components/pages/tracker-main/add-t
 import {MatDialogModule} from '@angular/material/dialog';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
-import {AuthModule, AuthService} from '@auth0/auth0-angular';
 import {environment, environment as env} from '../environments/environment';
 import { LoginButtonComponent } from './components/orphan-components/auth-button/login-button/login-button.component';
 import { LogoutButtonComponent } from './components/orphan-components/auth-button/logout-button/logout-button.component';
 import { AuthButtonComponent } from './components/orphan-components/auth-button/auth-button.component';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthHttpInterceptor } from '@auth0/auth0-angular';
-import {AuthResolver} from './services/auth.resolver';
 import { NavBarComponent } from './components/orphan-components/nav-bar/nav-bar.component';
 import { UserMenuComponent } from './components/orphan-components/auth-button/user-menu/user-menu.component'
 import {MatMenuModule} from '@angular/material/menu';
@@ -37,6 +33,7 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { AuthLoginComponent } from './components/orphan-components/auth-login/auth-login.component';
 import { AuthSignupComponent } from './components/orphan-components/auth-signup/auth-signup.component';
 import { AuthVerifyEmailComponent } from './components/orphan-components/auth-verify-email/auth-verify-email.component';
+import {FirebaseAuthService} from './services/firebase-auth.service';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -77,30 +74,9 @@ import { AuthVerifyEmailComponent } from './components/orphan-components/auth-ve
     MatChipsModule,
     ChartsModule,
     NgApexchartsModule,
-    AuthModule.forRoot({
-      ...env.auth,
-      httpInterceptor: {
-        allowedList: [
-          // `${env.apiBaseUrl}/tracker/*`,
-          {
-            uri: `${env.apiBaseUrl}/app/*`
-          },
-          {
-            uri: `${env.apiBaseUrl}/user/*`
-          },
-          {
-            uri: "https://producttracker-api.herokuapp.com/user/*"
-          }
-        ]
-      }
-    }),
     FontAwesomeModule
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthHttpInterceptor,
-    multi: true,
-  }, AuthResolver, AuthService],
+  providers: [FirebaseAuthService],
   bootstrap: [AppComponent],
   entryComponents: [AddTrackerDialogComponent]
 })

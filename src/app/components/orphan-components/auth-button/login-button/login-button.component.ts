@@ -1,8 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {AuthService} from '@auth0/auth0-angular';
 import {Router} from '@angular/router';
 import {DOCUMENT} from '@angular/common';
-import {UserService} from '../../../../services/user.service';
+import {FirebaseAuthService} from '../../../../services/firebase-auth.service';
 
 @Component({
   selector: 'app-login-button',
@@ -12,7 +11,7 @@ import {UserService} from '../../../../services/user.service';
 export class LoginButtonComponent implements OnInit {
   constructor(private _router: Router,
               @Inject(DOCUMENT) private doc: Document,
-              private _userService: UserService
+              private _firebaseAuth: FirebaseAuthService
               ) {}
 
   ngOnInit(): void {
@@ -20,6 +19,6 @@ export class LoginButtonComponent implements OnInit {
   }
 
   login(){
-    this._userService.loginWithRedirect(this._router.url)
+    this._router.navigateByUrl('/login')
   }
 }

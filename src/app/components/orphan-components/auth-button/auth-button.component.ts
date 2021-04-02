@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from '@auth0/auth0-angular';
+import {FirebaseAuthService} from '../../../services/firebase-auth.service';
 
 @Component({
   selector: 'app-auth-button',
@@ -7,7 +7,7 @@ import {AuthService} from '@auth0/auth0-angular';
   styleUrls: ['./auth-button.component.scss']
 })
 export class AuthButtonComponent implements OnInit {
-  constructor(public auth: AuthService) {}
+  constructor(public firebaseAuth: FirebaseAuthService) {}
 
   ngOnInit(): void {}
 }

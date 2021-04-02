@@ -3,7 +3,6 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {Router} from '@angular/router';
 import {TrackerService} from '../../../services/tracker.service';
 import {take} from 'rxjs/operators';
-import {AuthService} from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +17,6 @@ export class HomeComponent implements OnInit {
 
   constructor(private _formBuilder: FormBuilder,
               private _priceService: TrackerService,
-              private _auth: AuthService,
               private _router: Router) {}
 
   ngOnInit(): void {

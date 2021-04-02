@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {HomeComponent} from './components/pages/home/home.component';
 import {TrackerMainComponent} from './components/pages/tracker-main/tracker-main.component';
-import {AuthResolver} from './services/auth.resolver';
+// import {AuthResolver} from './services/auth.resolver';
 import {AdminPanelComponent} from './components/pages/admin-panel/admin-panel.component';
 import {AdminGuard} from './services/admin.guard';
 import {AuthLoginComponent} from './components/orphan-components/auth-login/auth-login.component';
@@ -16,7 +16,7 @@ const routes: Routes = [
     component: TrackerMainComponent,
     canActivate: [AuthGuard],
     resolve: {
-      cache: AuthResolver
+      // cache: AuthResolver
     }
   },
   {
@@ -24,7 +24,7 @@ const routes: Routes = [
     component: AdminPanelComponent,
     canActivate: [AuthGuard, AdminGuard],
     resolve: {
-      cache: AuthResolver
+      // cache: AuthResolver
     }
   },
   {

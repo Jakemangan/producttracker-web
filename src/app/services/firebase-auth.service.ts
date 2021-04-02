@@ -5,6 +5,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { Router } from "@angular/router";
 import firebase from 'firebase/app';
 import User = firebase.User;
+import {UserService} from './user.service';
 
 export interface LocalUser {
   uid: string;
@@ -18,13 +19,14 @@ export interface LocalUser {
   providedIn: 'root'
 })
 export class FirebaseAuthService {
-  userData: User;
+  firebaseUserData: User;
 
   constructor(
     public afs: AngularFirestore,   // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     public router: Router,
-    public ngZone: NgZone // NgZone service to remove outside scope warning
+    public ngZone: NgZone, // NgZone service to remove outside scope warning
+    private _userService: UserService
   ) {
     /* Saving user data in localstorage when
     logged in and setting up null when logged out */
@@ -32,11 +34,13 @@ export class FirebaseAuthService {
   }
 
   checkAuthState(){
-    this.afAuth.authState.subscribe(user => {
+    this.afAuth.authState.subscribe(async user => {
       if (user) {
-        this.userData = user;
-        localStorage.setItem('user', JSON.stringify(this.userData));
+        this.firebaseUserData = user;
+        localStorage.setItem('user', JSON.stringify(this.firebaseUserData));
         JSON.parse(localStorage.getItem('user'));
+        await this._userService.getCurrentUserData(this.firebaseUserData.email);
+        console.log("Current user data: ", this._userService.currentUserData);
       } else {
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
@@ -48,8 +52,9 @@ export class FirebaseAuthService {
   SignIn(email: string, password: string) {
     return this.afAuth.signInWithEmailAndPassword(email, password)
       .then((result) => {
+        localStorage.setItem('user', JSON.stringify(result.user));
         this.ngZone.run(() => {
-          this.router.navigate(['app']);
+          this.router.navigateByUrl('/app');
         });
         this.GetUserData(result.user);
       }).catch((error) => {
@@ -74,7 +79,7 @@ export class FirebaseAuthService {
   SendVerificationMail() {
     return this.afAuth.currentUser.then(u => u.sendEmailVerification())
       .then(() => {
-        this.router.navigate(['verify-email-address']);
+        this.router.navigateByUrl('/verify-email-address');
       })
   }
 
@@ -99,7 +104,7 @@ export class FirebaseAuthService {
     return this.afAuth.signInWithPopup(provider)
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['app']);
+          this.router.navigateByUrl('/app');
         })
         this.GetUserData(result.user);
       }).catch((error) => {
@@ -125,10 +130,10 @@ export class FirebaseAuthService {
   }
 
   // Sign out
-  SignOut() {
+  logout() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['sign-in']);
+      this.router.navigateByUrl('/login');
     })
   }
 }
