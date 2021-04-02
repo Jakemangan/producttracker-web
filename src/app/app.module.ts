@@ -13,8 +13,8 @@ import { AddTrackerDialogComponent } from './components/pages/tracker-main/add-t
 import {MatDialogModule} from '@angular/material/dialog';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
-import { AuthModule } from '@auth0/auth0-angular';
-import { environment as env } from '../environments/environment';
+import {AuthModule, AuthService} from '@auth0/auth0-angular';
+import {environment, environment as env} from '../environments/environment';
 import { LoginButtonComponent } from './components/orphan-components/auth-button/login-button/login-button.component';
 import { LogoutButtonComponent } from './components/orphan-components/auth-button/logout-button/logout-button.component';
 import { AuthButtonComponent } from './components/orphan-components/auth-button/auth-button.component';
@@ -31,6 +31,12 @@ import { AdminPanelComponent } from './components/pages/admin-panel/admin-panel.
 import {ChartsModule} from 'ng2-charts';
 import { TrackerChartComponent } from './components/pages/tracker-main/product-tracker/tracker-chart/tracker-chart.component';
 import {NgApexchartsModule} from 'ng-apexcharts';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFireAuthModule} from '@angular/fire/auth';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import { AuthLoginComponent } from './components/orphan-components/auth-login/auth-login.component';
+import { AuthSignupComponent } from './components/orphan-components/auth-signup/auth-signup.component';
+import { AuthVerifyEmailComponent } from './components/orphan-components/auth-verify-email/auth-verify-email.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -47,9 +53,15 @@ import {NgApexchartsModule} from 'ng-apexcharts';
     NavBarComponent,
     UserMenuComponent,
     AdminPanelComponent,
-    TrackerChartComponent
+    TrackerChartComponent,
+    AuthLoginComponent,
+    AuthSignupComponent,
+    AuthVerifyEmailComponent
   ],
   imports: [
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -71,10 +83,13 @@ import {NgApexchartsModule} from 'ng-apexcharts';
         allowedList: [
           // `${env.apiBaseUrl}/tracker/*`,
           {
-            uri: 'http://localhost:5050/tracker/*'
+            uri: `${env.apiBaseUrl}/app/*`
           },
           {
-            uri: 'http://localhost:5050/user/*'
+            uri: `${env.apiBaseUrl}/user/*`
+          },
+          {
+            uri: "https://producttracker-api.herokuapp.com/user/*"
           }
         ]
       }
@@ -85,7 +100,7 @@ import {NgApexchartsModule} from 'ng-apexcharts';
     provide: HTTP_INTERCEPTORS,
     useClass: AuthHttpInterceptor,
     multi: true,
-  }, AuthResolver],
+  }, AuthResolver, AuthService],
   bootstrap: [AppComponent],
   entryComponents: [AddTrackerDialogComponent]
 })
