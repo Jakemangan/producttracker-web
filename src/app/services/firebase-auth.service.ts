@@ -65,15 +65,27 @@ export class FirebaseAuthService {
   // Sign up with email/password
   SignUp(email: string, password: string) {
     return this.afAuth.createUserWithEmailAndPassword(email, password)
-      .then((result) => {
-        /* Call the SendVerificaitonMail() function when new user sign
-        up and returns promise */
+      .then(async (result) => {
+        const user = firebase.auth().currentUser;
+        await user.updateProfile({displayName: "Jake"});
         this.SendVerificationMail();
+        // result.user. = "Jake"
         localStorage.setItem('user', JSON.stringify(this.GetUserData(result.user)));
       }).catch((error) => {
         window.alert(error.message)
       })
   }
+
+// {
+//   /* Call the SendVerificaitonMail() function when new user sign
+//   up and returns promise */
+//   this.SendVerificationMail();
+//   const user = firebase.auth().currentUser;
+//   user.updateProfile({
+//                        displayName: "Jake"
+//                      });
+//   localStorage.setItem('user', JSON.stringify(this.GetUserData(result.user)));
+// }
 
   // Send email verfificaiton when new user sign up
   SendVerificationMail() {

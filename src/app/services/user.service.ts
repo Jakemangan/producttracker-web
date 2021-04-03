@@ -29,7 +29,6 @@ export class UserService {
       this.currentUserData = user;
       console.log("User data retrieved");
     })
-
   }
 
   // getCurrentUserData(): Observable<UserData>{

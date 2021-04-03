@@ -9,6 +9,7 @@ import {AuthLoginComponent} from './components/orphan-components/auth-login/auth
 import {AuthGuard} from './services/auth.guard';
 import {AuthSignupComponent} from './components/orphan-components/auth-signup/auth-signup.component';
 import {AuthVerifyEmailComponent} from './components/orphan-components/auth-verify-email/auth-verify-email.component';
+import {AuthResolver} from './services/auth.resolver';
 
 const routes: Routes = [
   {
@@ -16,7 +17,7 @@ const routes: Routes = [
     component: TrackerMainComponent,
     canActivate: [AuthGuard],
     resolve: {
-      // cache: AuthResolver
+      cache: AuthResolver
     }
   },
   {
@@ -24,7 +25,7 @@ const routes: Routes = [
     component: AdminPanelComponent,
     canActivate: [AuthGuard, AdminGuard],
     resolve: {
-      // cache: AuthResolver
+      cache: AuthResolver
     }
   },
   {

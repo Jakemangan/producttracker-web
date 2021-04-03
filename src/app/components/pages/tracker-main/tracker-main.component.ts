@@ -23,13 +23,11 @@ export class TrackerMainComponent implements OnInit {
               public firebaseAuth: FirebaseAuthService) { }
 
   ngOnInit(): void {
-
-        // this._trackerService.getAllActiveTrackersByUserId(this._userService.currentUserData.id).subscribe((res: ProductTracker[]) => {
-        //   if(res && res.length > 0){
-        //     res.forEach(res => this.activeTrackers.push(res));
-        //   }
-        // })
-
+        this._trackerService.getAllActiveTrackersByUserId(this._userService.currentUserData.id).subscribe((res: ProductTracker[]) => {
+          if(res && res.length > 0){
+            res.forEach(res => this.activeTrackers.push(res));
+          }
+        })
   }
 
   test(){

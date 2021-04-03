@@ -6,21 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9e4fe659-db56-4444-8295-16a28bae2878" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/auth-button.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/auth-button.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/auth-button.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/auth-button.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/login-button/login-button.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/login-button/login-button.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/logout-button/logout-button.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/logout-button/logout-button.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/user-menu/user-menu.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/user-menu/user-menu.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/user-menu/user-menu.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/user-menu/user-menu.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-verify-email/auth-verify-email.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/orphan-components/auth-verify-email/auth-verify-email.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/pages/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/home/home.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-main.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-main.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-main.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-main.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/services/auth.resolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/auth.resolver.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/services/firebase-auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/firebase-auth.service.ts" afterDir="false" />
@@ -169,7 +155,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-main.component.ts</url>
-          <line>95</line>
+          <line>93</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
