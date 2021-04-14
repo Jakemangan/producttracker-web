@@ -8,6 +8,11 @@ button.mat-menu-item{
 
 div.mat-menu-panel{
     box-shadow: none;
-    @apply border; 
+    @apply border;
     @apply border-gray-300;
+}
+
+.icon-position{
+  position: relative;
+  top: 3px;
 }

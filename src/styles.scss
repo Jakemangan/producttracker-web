@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+/* "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css" */
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
@@ -47,7 +48,7 @@ body {
   border: 1px solid #dee2e6;
 }
 
-span{
+h1 h4 span{
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -57,4 +58,12 @@ span{
 
 .slight-gray{
   background-color: #f8f8f8;
+}
+
+.margin-none{
+  margin: 0 !important;
+}
+
+.font-unset{
+  font: unset !important;
 }

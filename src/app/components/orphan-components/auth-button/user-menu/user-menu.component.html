@@ -1,22 +1,21 @@
-<div *ngIf="_firebaseAuth.isLoggedIn">
+<div *ngIf="firebaseAuth.isLoggedIn">
   <div class="flex flex-row"
   [matMenuTriggerFor]="menu"
   (menuOpened)="menuOpened()"
   (menuClosed)="menuClosed()">
-    <img src="null"
-    class="h-8 rounded-2xl"
-    alt="avatar"
-    />
-    <mat-icon *ngIf="!menuOpen" class="mt-auto mb-auto text-sm text-gray-500 icon-width">expand_more</mat-icon>
-    <mat-icon *ngIf="menuOpen" class="mt-auto mb-auto text-sm text-gray-500 icon-width">expand_less</mat-icon>
+    <div class="h-8 w-8 rounded-full text-white flex items-center justify-center main-action-colour">
+      {{avatarDisplayName}}
+    </div>
+    <mat-icon *ngIf="!menuOpen" class="mt-auto mb-auto text-sm text-gray-500 icon-width icon-position">expand_more</mat-icon>
+    <mat-icon *ngIf="menuOpen" class="mt-auto mb-auto text-sm text-gray-500 icon-width icon-position">expand_less</mat-icon>
   </div>
 
   <mat-menu #menu="matMenu">
-    <button class="h-4" mat-menu-item (click)="logout()"><span class="h-full flex items-center">Profile</span></button>
+    <button class="h-4" mat-menu-item><span class="h-full flex items-center">Profile</span></button>
     <button *ngIf="isUserAdmin" class="h-4" mat-menu-item [routerLink]="'/admin'">
       <span class="h-full flex items-center">Admin</span>
     </button>
-    <button class="h-4" mat-menu-item (click)="logout()"><span class="h-full flex items-center">Settings</span></button>
+    <button class="h-4" mat-menu-item><span class="h-full flex items-center">Settings</span></button>
     <button class="h-4" mat-menu-item (click)="logout()"><span class="h-full flex items-center">Logout</span></button>
   </mat-menu>
 </div>

@@ -47,13 +47,10 @@
             </span>
       </div>
     </div>
-    <div class="w-2/5 h-full">
-      <app-tracker-chart [priceDifference]="trackerDefinition.priceData.priceDifference"></app-tracker-chart>
-    </div>
     <div class="w-1/5 h-full flex flex-col justify-start items-start">
       <div class="mb-1 mt-4 flex flex-row">
-        <div [ngClass]="trackerDefinition.isAvailable ? 'bg-blue-300' : 'bg-yellow-300'" class="h-6 w-6 rounded bg-white flex justify-center items-center">
-          <div *ngIf="trackerDefinition.isAvailable" class="text-blue-600">
+        <div [ngClass]="trackerDefinition.isAvailable ? 'bg-green-300' : 'bg-yellow-300'" class="h-6 w-6 rounded bg-white flex justify-center items-center">
+          <div *ngIf="trackerDefinition.isAvailable" class="text-green-600">
             <fa-icon [icon]="faShoppingBag"></fa-icon>
           </div>
           <div *ngIf="!trackerDefinition.isAvailable" class="text-yellow-600">
@@ -103,6 +100,9 @@
 <!--        <div *ngIf="trackerDefinition.isAvailable" class="h-4 w-16 rounded bg-green-300 text-green-900 flex justify-center items-center"><span class="pill-text">Available</span></div>-->
 <!--        <div *ngIf="!trackerDefinition.isAvailable"  class="h-4 w-20 rounded bg-red-300 text-red-900 flex justify-center items-center"><span class="pill-text">Not available</span></div>-->
 <!--      </div>-->
+    </div>
+    <div class="w-2/5 h-full">
+      <app-tracker-chart [priceDifference]="trackerDefinition.priceData.priceDifference"></app-tracker-chart>
     </div>
     <div class="w-1/5 h-full">
       <div class="p-4 pr-6 w-full h-full">

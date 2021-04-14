@@ -9,5 +9,8 @@ import {FirebaseAuthService} from '../../../services/firebase-auth.service';
 export class AuthButtonComponent implements OnInit {
   constructor(public firebaseAuth: FirebaseAuthService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log("Firebase user data: " + this.firebaseAuth.firebaseUserData)
+    console.log("Logged: " + this.firebaseAuth.isLoggedIn);
+  }
 }

@@ -34,6 +34,7 @@ import { AuthLoginComponent } from './components/orphan-components/auth-login/au
 import { AuthSignupComponent } from './components/orphan-components/auth-signup/auth-signup.component';
 import { AuthVerifyEmailComponent } from './components/orphan-components/auth-verify-email/auth-verify-email.component';
 import {FirebaseAuthService} from './services/firebase-auth.service';
+import { AuthForgotPasswordComponent } from './components/orphan-components/auth-forgot-password/auth-forgot-password.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -53,7 +54,8 @@ import {FirebaseAuthService} from './services/firebase-auth.service';
     TrackerChartComponent,
     AuthLoginComponent,
     AuthSignupComponent,
-    AuthVerifyEmailComponent
+    AuthVerifyEmailComponent,
+    AuthForgotPasswordComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),

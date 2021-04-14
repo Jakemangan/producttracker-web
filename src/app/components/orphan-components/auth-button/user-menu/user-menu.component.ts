@@ -12,15 +12,18 @@ export class UserMenuComponent implements OnInit {
 
   menuOpen = false;
   isUserAdmin = false;
+  avatarDisplayName = "";
 
-  constructor(public _firebaseAuth: FirebaseAuthService) { }
+  constructor(public firebaseAuth: FirebaseAuthService,
+              private _userService: UserService) { }
 
   ngOnInit(): void {
-    // this.isUserAdmin = this._userService.isUserAdmin();
+    this.isUserAdmin = this._userService.isUserAdmin();
+    this.avatarDisplayName = this._userService.currentUserData.email.substr(0, 1).toUpperCase() + this._userService.currentUserData.email.substr(1, 1);
   }
 
   logout(){
-    this._firebaseAuth.logout();
+    this.firebaseAuth.logout();
   }
 
   menuOpened(){

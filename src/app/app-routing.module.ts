@@ -10,6 +10,7 @@ import {AuthGuard} from './services/auth.guard';
 import {AuthSignupComponent} from './components/orphan-components/auth-signup/auth-signup.component';
 import {AuthVerifyEmailComponent} from './components/orphan-components/auth-verify-email/auth-verify-email.component';
 import {AuthResolver} from './services/auth.resolver';
+import {AuthForgotPasswordComponent} from './components/orphan-components/auth-forgot-password/auth-forgot-password.component';
 
 const routes: Routes = [
   {
@@ -38,12 +39,19 @@ const routes: Routes = [
   },
   {
     path: 'verify-email-address',
-    component: AuthVerifyEmailComponent
+    component: AuthVerifyEmailComponent,
+    resolve: {
+      cache: AuthResolver
+    }
+  },
+  {
+    path: 'forgot-password',
+    component: AuthForgotPasswordComponent
   },
   {
     path: '',
     component: HomeComponent,
-  },
+  }
 ];
 
 @NgModule({
