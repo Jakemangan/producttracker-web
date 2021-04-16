@@ -4,6 +4,9 @@ import {take} from 'rxjs/operators';
 import {ProductTracker} from '../../../../models/ProductTracker';
 import {PriceResponse} from '../../../../models/ScrapeResult'
 import { faEllipsisH, faChartArea, faShoppingBag, faExternalLinkAlt, faImage, faTimes, faClock, faEnvelope, faCog } from '@fortawesome/free-solid-svg-icons';
+import {MatDialog} from '@angular/material/dialog';
+import {AddTrackerDialogComponent} from '../add-tracker-dialog/add-tracker-dialog.component';
+import {TrackerDeleteDialogComponent} from './tracker-delete-dialog/tracker-delete-dialog.component';
 
 
 @Component({
@@ -34,7 +37,7 @@ export class ProductTrackerComponent implements OnInit, OnChanges {
   public priceDifference: string = "";
   public modifiedTitle: string = "";
 
-  constructor(private _priceService: TrackerService) { }
+  constructor(private _priceService: TrackerService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.priceDifference = this.trackerDefinition.priceData?.priceDifference.toString().replace(/-/g, "")!;
@@ -47,9 +50,19 @@ export class ProductTrackerComponent implements OnInit, OnChanges {
 
   }
 
-
   remove(){
-    this.removeEmitter.emit(this.trackerDefinition.id);
+    const dialogRef = this.dialog.open(TrackerDeleteDialogComponent, {
+      width: "600px",
+      data: {
+        title: this.trackerDefinition.title
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(res => {
+      if(res){
+        this.removeEmitter.emit(this.trackerDefinition.id);
+      }
+    })
   }
 
   displaySkeletonImage(){

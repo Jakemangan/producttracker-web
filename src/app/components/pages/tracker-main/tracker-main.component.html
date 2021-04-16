@@ -6,8 +6,7 @@
     <div class="w-full p-3 pl-6 pr-6 pb-2 card-grey-border bg-white">
       <div class="flex flex-row justify-between items-center">
         <div class="text-sm text-gray-600 ">Welcome back, <span class="text-gray-800 font-medium">{{firebaseAuth.firebaseUserData.email}}</span> - Let's get started.</div>
-        <button mat-flat-button
-                class="main-action-colour text-white shadow border border-white text-xs font-semibold w-40"
+        <button class="main-action-colour text-white border border-white text-xs font-semibold w-40 rounded-full h-10"
                 (click)="openAddTrackerDialog()" [disabled]="activeTrackers.length >= 22">ADD NEW TRACKER</button>
       </div>
       <div class="">

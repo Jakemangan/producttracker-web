@@ -1,0 +1,18 @@
+<div class="flex justify-center items-center">
+  <div class="w-full flex flex-col">
+    <div>
+      <div class="flex flex-row justify-between">
+        <h1 class="text-xl font-bold text-gray-900">Delete tracker</h1>
+        <span class="text-xl">🗑️</span>
+      </div>
+      <h4 class="text-xs mt-1 mb-4 w-4/5 text-gray-900">The tracker for <strong>{{data.title}}</strong> will be deleted.</h4>
+      <h4 class="text-xs mt-1 mb-4 w-4/5 text-gray-900">This action is irreversible, would you like to continue?</h4>
+    </div>
+    <div class="mt-2">
+      <div class="flex justify-between p-2">
+        <button mat-flat-button class="bg-gray-600 text-white rounded-full" (click)="close()">Cancel</button>
+        <button mat-flat-button class="bg-blue-500 text-white rounded-full" (click)="submit()">Okay</button>
+      </div>
+    </div>
+  </div>
+</div>

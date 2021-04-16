@@ -11,33 +11,53 @@
         <span class="text-xl">📝</span>
       </div>
       <h4 class="text-xs mt-1 mb-4 text-gray-400">Create an account and we can get started.</h4>
+      <button (click)="test()">test</button>
     </div>
-    <div>
-      <div class="mb-1">
-        <span class="font-bold text-xs mb-2 text-gray-500">Email</span>
+    <form [formGroup]="form">
+      <div>
+        <div class="mb-1">
+          <span class="font-bold text-xs mb-2 text-gray-500">Email</span>
+        </div>
+        <input
+          class="h-10 w-full rounded-full border border-gray-300 outline-none p-4 text-xs"
+          formControlName="email"
+          placeholder="name@domain.com"
+          type="text"
+          name="username"
+          #email
+        />
       </div>
-      <input
-        class="h-10 w-full rounded-full border border-gray-300 outline-none p-4 text-xs"
-        placeholder="name@domain.com"
-        type="text"
-        #email
-      />
-    </div>
-    <div class="mt-2">
-      <div class="mb-1">
-        <span class="font-bold text-xs mb-2 text-gray-500">Password</span>
+      <div>
+        <div class="mb-1">
+          <span class="font-bold text-xs mb-2 text-gray-500">Full name</span>
+        </div>
+        <input
+          class="h-10 w-full rounded-full border border-gray-300 outline-none p-4 text-xs"
+          formControlName="fullName"
+          placeholder="name@domain.com"
+          type="text"
+          name="username"
+          #email
+        />
       </div>
-      <input
-        class="h-10 w-full rounded-full border border-gray-300 outline-none p-4 text-xs"
-        placeholder="*********"
-        type="password"
-        #password
-      />
-    </div>
+      <div class="mt-4">
+        <div class="mb-1">
+          <span class="font-bold text-xs mb-2 text-gray-500">Password</span>
+        </div>
+        <input
+          class="h-10 w-full rounded-full border border-gray-300 outline-none p-4 text-xs"
+          formControlName="password"
+          placeholder="*********"
+          type="password"
+          #password
+        />
+      </div>
+    </form>
+    <app-password-strength class="password-strength-position" [password]="form['password']?.value"></app-password-strength>
     <div class="mt-6">
       <button class="w-full h-10 bg-blue-500 rounded-full flex items-center justify-center"
               type="submit"
-              (click)="authService.SignUp(email.value, password.value)">
+              (click)="authService.SignUp(form['email'].value, form['password'].value)">
         <span class="text-white font-medium">Sign up</span>
       </button>
     </div>
@@ -47,6 +67,7 @@
       </span>
     </div>
   </div>
+
 </div>
 
 <!--<div class="displayTable">-->

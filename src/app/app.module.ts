@@ -35,6 +35,8 @@ import { AuthSignupComponent } from './components/orphan-components/auth-signup/
 import { AuthVerifyEmailComponent } from './components/orphan-components/auth-verify-email/auth-verify-email.component';
 import {FirebaseAuthService} from './services/firebase-auth.service';
 import { AuthForgotPasswordComponent } from './components/orphan-components/auth-forgot-password/auth-forgot-password.component';
+import { TrackerDeleteDialogComponent } from './components/pages/tracker-main/product-tracker/tracker-delete-dialog/tracker-delete-dialog.component';
+import { PasswordStrengthComponent } from './components/orphan-components/auth-signup/password-strength/password-strength.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -55,7 +57,9 @@ import { AuthForgotPasswordComponent } from './components/orphan-components/auth
     AuthLoginComponent,
     AuthSignupComponent,
     AuthVerifyEmailComponent,
-    AuthForgotPasswordComponent
+    AuthForgotPasswordComponent,
+    TrackerDeleteDialogComponent,
+    PasswordStrengthComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),

@@ -21,13 +21,13 @@ export class TrackerChartComponent implements OnInit {
   private backgroundColor: string;
 
   public lineChartData: ChartDataSets[] = [
-    { data: [65, 65, 65, 65, 65, 65, 233, 233, 233, 233, 233],
+    { data: [65, 233, 233, 233, 233, 233, 233, 233, 233, 233, 233],
       label: 'Series A',
       backgroundColor: "",
 
     },
   ];
-  public lineChartLabels: Label[] = ['65', '65', '65', '65', '65', '65', '233', '233', '233', '233', '233'];
+  public lineChartLabels: Label[] = ['65', '233', '233', '233', '233', '233', '233', '233', '233', '233', '233'];
   public lineChartOptions: (ChartOptions & { annotation: any }) = {
     responsive: true,
     annotation: "",
