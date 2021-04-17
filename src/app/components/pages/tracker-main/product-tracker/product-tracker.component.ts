@@ -18,7 +18,7 @@ import {TrackerDeleteDialogComponent} from './tracker-delete-dialog/tracker-dele
 export class ProductTrackerComponent implements OnInit, OnChanges {
 
   @Input() trackerDefinition!: ProductTracker;
-  @Input() isLoading = true;
+  @Input() isSkeleton: boolean;
   @Output() removeEmitter: EventEmitter<string> = new EventEmitter<string>();
 
   public faEllipsisH = faEllipsisH;
@@ -36,6 +36,7 @@ export class ProductTrackerComponent implements OnInit, OnChanges {
   public shouldDisplaySkeletonImage = false;
   public priceDifference: string = "";
   public modifiedTitle: string = "";
+  public hostname: string = "";
 
   constructor(private _priceService: TrackerService, public dialog: MatDialog) { }
 
@@ -44,6 +45,7 @@ export class ProductTrackerComponent implements OnInit, OnChanges {
     this.modifiedTitle = this.trackerDefinition.title.length > 80 ?
       this.trackerDefinition.title?.substr(0, 80).trim() + "..." :
       this.trackerDefinition.title!;
+    this.hostname = new URL(this.trackerDefinition.url).hostname.replace("www.", "");
   }
 
   ngOnChanges(changes: SimpleChanges): void {

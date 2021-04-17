@@ -12,7 +12,6 @@ import { faCheckCircle, faQuestionCircle } from '@fortawesome/free-solid-svg-ico
 })
 export class AddTrackerDialogComponent implements OnInit {
 
-  public inputUrl!: string;
   public canContinue = false;
   public isWorking: boolean = undefined;
   public form: FormGroup;
@@ -30,7 +29,7 @@ export class AddTrackerDialogComponent implements OnInit {
     this.form = this._fb.group({
       url: this._fb.control("")
     })
-    
+
     this.form.valueChanges.pipe(debounceTime(500), switchMap(valueChanges => {
       return this._trackerService.checkHostnameIsConfirmedWorking(valueChanges.url);
     })).subscribe(isWorking => {
@@ -40,7 +39,7 @@ export class AddTrackerDialogComponent implements OnInit {
   }
 
   submit(){
-    this.dialogRef.close(this.inputUrl);
+    this.dialogRef.close(this.form.get('url').value);
   }
 
   close(){

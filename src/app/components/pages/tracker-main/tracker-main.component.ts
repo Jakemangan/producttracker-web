@@ -50,15 +50,7 @@ export class TrackerMainComponent implements OnInit {
     let newTracker: ProductTracker = {
       url: url,
       owner: this._userService.currentUserData.id,
-      id: undefined,
-      dateStartedTracking: undefined,
-      imageUrl: undefined,
-      isAvailable: undefined,
-      priceData: undefined,
-      title: undefined,
-      currencyType: undefined,
-      trackingFrequency: undefined,
-      datapoints: undefined
+      id: "tbd"
     }
 
     this.activeTrackers.push(newTracker);
@@ -70,24 +62,12 @@ export class TrackerMainComponent implements OnInit {
 
     this._trackerService.initialiseTracker(initialiseBody).pipe(take(1)).subscribe((res: ProductTracker) => {
       newTracker = res;
-      // newTracker.id = res.id;
-      // newTracker.url = res.url;
-      // newTracker.title = res.title;
-      // newTracker.initialPrice = res.initialPrice;
-      // newTracker.initialPricePretty = res.initialPricePretty;
-      // newTracker.currentPrice = res.currentPrice;
-      // newTracker.currentPricePretty = res.currentPricePretty;
-      // newTracker.trackingFrequency = res.trackingFrequency;
-      // newTracker.isAvailable = res.isAvailable;
-      // newTracker.imageUrl = res.imageUrl;
-      // newTracker.currencyType = res.currencyType;
-      // newTracker.dateStartedTracking = res.dateStartedTracking;
 
       /*
       * TODO :: Find a better way to init empty tracker and then update, probably something using IDs, but that means the front-end would need
       * TODO :: to generate the ID
        */
-      let indexOf = this.activeTrackers.indexOf(<ProductTracker> this.activeTrackers.find(tracker => tracker.url === url && tracker.owner === this._userService.currentUserData.id));
+      let indexOf = this.activeTrackers.indexOf(<ProductTracker> this.activeTrackers.find(tracker => tracker.id == "tbd"));
       this.activeTrackers[indexOf] = newTracker
     });
   }
