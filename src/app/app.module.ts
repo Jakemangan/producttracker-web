@@ -40,6 +40,11 @@ import { PasswordStrengthComponent } from './components/orphan-components/auth-s
 import { FooterComponent } from './components/orphan-components/footer/footer.component';
 import { TestProductComponent } from './components/pages/test-product/test-product.component';
 import {ToastrModule} from 'ngx-toastr';
+import { ActiveTrackerDisplayComponent } from './components/pages/tracker-main/active-tracker-display/active-tracker-display.component';
+import { TrackerTableComponent } from './components/pages/tracker-main/tracker-table/tracker-table.component';
+import { TrackerSettingsPanelComponent } from './components/pages/tracker-main/active-tracker-display/tracker-settings-panel/tracker-settings-panel.component';
+import { SettingsRowComponent } from './components/pages/tracker-main/active-tracker-display/tracker-settings-panel/settings-row/settings-row.component';
+import { StaticColourSettingsRowComponent } from './components/pages/tracker-main/active-tracker-display/tracker-settings-panel/settings-row/static-colour-settings-row/static-colour-settings-row.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -64,7 +69,12 @@ import {ToastrModule} from 'ngx-toastr';
     TrackerDeleteDialogComponent,
     PasswordStrengthComponent,
     FooterComponent,
-    TestProductComponent
+    TestProductComponent,
+    ActiveTrackerDisplayComponent,
+    TrackerTableComponent,
+    TrackerSettingsPanelComponent,
+    SettingsRowComponent,
+    StaticColourSettingsRowComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),

@@ -16,13 +16,22 @@ import {ActiveTrackerService} from '../../../services/active-tracker.service';
 })
 export class TrackerMainComponent implements OnInit {
 
+  activeTracker: ProductTracker;
+
   constructor(public dialog: MatDialog,
               public _trackerService: TrackerService,
               public _userService: UserService,
               public firebaseAuth: FirebaseAuthService) { }
 
   ngOnInit(): void {
-    this._trackerService.getAllActiveTrackersByUserId(this._userService.currentUserData.id);
+    //TakeUntil destroy
+    this._trackerService.TrackerBehaviourSubject.subscribe(res => {
+      if(res && res.length > 0){
+        this.activeTracker = res[0];
+      }
+    })
+
+    this._trackerService.getAllTrackersByUserId(this._userService.currentUserData.id);
   }
 
   openAddTrackerDialog(): void {

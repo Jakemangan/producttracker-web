@@ -1,0 +1,41 @@
+<div class="flex flex-row mt-1 mb-1 align-center">
+  <div class="w-1/5 h-full flex justify-center mt-auto mb-auto">
+    <div class="border border-blue-400 bg-white w-7 h-7 flex justify-center align-center rounded-md shadow">
+      <ng-container *ngIf="icon">
+        <fa-icon class="text-blue-400 icon-position icon-size" [icon]="icon"></fa-icon>
+      </ng-container>
+      <ng-container *ngIf="textIcon">
+        <span class="text-blue-400 text-xs mt-auto mb-auto text-icon-size"><strong>24hr</strong></span>
+      </ng-container>
+    </div>
+  </div>
+  <div class="flex justify-between w-4/5 m-2 ml-0">
+    <div class="flex items-center w-7/10">
+      <span class="text-xxs">{{label}}</span>
+    </div>
+    <div class="flex items-center w-3/10">
+      <div *ngIf="positiveColour" class="p-2 bg-green-200 w-16 h-5 rounded-md flex items-center justify-center">
+        <span class="text-xxs text-green-600"><strong>{{value}}</strong></span>
+      </div>
+      <div *ngIf="!positiveColour" class="p-2 bg-red-200 w-16 h-5 rounded-md flex items-center justify-center">
+        <span class="text-xxs text-red-600"><strong>{{value}}</strong></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<div class="flex flex-row mt-1 mb-1 align-center">-->
+<!--  <div class="w-1/5 h-full flex justify-center mt-auto mb-auto">-->
+<!--    <div class="border border-blue-400 bg-white w-7 h-7 flex justify-center align-center rounded-md shadow">-->
+<!--      <span class="text-blue-400 text-xs mt-auto mb-auto text-icon-size"><strong>24hr</strong></span>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="flex justify-between w-4/5 m-2 ml-0">-->
+<!--    <div class="flex items-center">-->
+<!--      <span class="text-xxs">Update period</span>-->
+<!--    </div>-->
+<!--    <div class="flex items-center">-->
+<!--      <span class="text-xxs"><strong>24 hours</strong></span>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

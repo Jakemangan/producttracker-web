@@ -17,13 +17,15 @@ export class TrackerService {
   baseUrl = "";
   private activeTrackers: ProductTracker[] = [];
 
+  TrackerBehaviourSubject: BehaviorSubject<ProductTracker[]> = new BehaviorSubject<ProductTracker[]>(null);
+
   constructor(private _http: HttpClient,
               public _userService: UserService,
               private _toastr: ToastrService) {
     this.baseUrl = environment.apiBaseUrl;
   }
 
-  get ActiveTrackers(): ProductTracker[] {
+  get ProductTrackers(): ProductTracker[] {
     return this.activeTrackers;
   }
 
@@ -66,7 +68,7 @@ export class TrackerService {
     let trackerInstance = this.activeTrackers.find(x => x.id === trackerId);
     if(trackerInstance){
       this.deleteTrackerById(trackerId).pipe().subscribe(() => {
-        this.getAllActiveTrackersByUserId(this._userService.currentUserData.id)
+        this.getAllTrackersByUserId(this._userService.currentUserData.id)
       }, (err) => {
         console.error("Unable to delete tracker");
       })
@@ -85,12 +87,11 @@ export class TrackerService {
   /*
   * API Calls
    */
-  getAllActiveTrackersByUserId(userId: string): void {
+  getAllTrackersByUserId(userId: string): void {
     let url = this.baseUrl + "/tracker/" + userId;
-    this._http.get<ProductTracker[]>(url).subscribe((res: ProductTracker[]) => {
+    this._http.get<ProductTracker[]>(url).pipe(take(1)).subscribe((res: ProductTracker[]) => {
       if(res && res.length > 0){
-        this.activeTrackers = [];
-        res.forEach(res => this.ActiveTrackers.push(res));
+        this.TrackerBehaviourSubject.next(res);
       }
     });
   }

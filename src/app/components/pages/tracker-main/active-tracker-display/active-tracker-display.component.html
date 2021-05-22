@@ -1,0 +1,19 @@
+<div class="bg-white border shadow w-full min-h-64 rounded-md">
+  <div class="min-h-12 w-full flex justify-between p-3 border-b border-gray-200">
+    <div class="w-4/5">
+      <span class="text-xs block">{{tracker.title}}</span>
+    </div>
+    <div>
+      <span>{{tracker.priceData.currentPrice}}</span>
+    </div>
+  </div>
+  <div class="w-full h-4/5 flex flex-row mt-2">
+    <div class="h-full w-2/5">
+      <app-tracker-settings-panel></app-tracker-settings-panel>
+    </div>
+    <div class="h-full w-3/5">
+      Graph
+<!--      <app-tracker-chart></app-tracker-chart>-->
+    </div>
+  </div>
+</div>
