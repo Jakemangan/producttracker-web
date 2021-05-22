@@ -80,3 +80,17 @@ h1 h4 span{
 .font-unset{
   font: unset !important;
 }
+
+.toast-progress{
+  background-color: #ffffff !important;
+  opacity: 1 !important;
+  font-size: 1rem;
+}
+
+.toast-bottom-center {
+  bottom: 15px;
+}
+
+.toast-message{
+  font-size: 0.8rem;
+}

@@ -7,14 +7,14 @@
       <div class="flex flex-row justify-between items-center">
         <div class="text-sm text-gray-600 ">Welcome back, <span class="text-gray-800 font-medium">{{firebaseAuth.firebaseUserData.email}}</span> - Let's get started.</div>
         <button class="main-action-colour text-white border border-white text-xs font-semibold w-36 rounded h-8"
-                (click)="openAddTrackerDialog()" [disabled]="activeTrackers.length >= 22">ADD NEW TRACKER</button>
+                (click)="openAddTrackerDialog()" [disabled]="_trackerService.ActiveTrackers.length >= 22">ADD NEW TRACKER</button>
       </div>
       <div class="">
         <div class="">
-          <span class="text-xs text-gray-600">You're using <strong>{{activeTrackers.length}}</strong> out of <strong>2</strong> trackers.</span>
+          <span class="text-xs text-gray-600">You're using <strong>{{_trackerService.ActiveTrackers.length}}</strong> out of <strong>2</strong> trackers.</span>
         </div>
         <div>
-          <span class="text-xs text-gray-600">Currently, <strong>2</strong> out of <strong>{{activeTrackers.length}}</strong> of your trackers have a discounted price.</span>
+          <span class="text-xs text-gray-600">Currently, <strong>2</strong> out of <strong>{{_trackerService.ActiveTrackers.length}}</strong> of your trackers have a discounted price.</span>
         </div>
       </div>
     </div>
@@ -24,7 +24,7 @@
     </div>
 
     <div class="tracker-container mt-2">
-      <ng-container *ngFor="let tracker of activeTrackers;">
+      <ng-container *ngFor="let tracker of _trackerService.ActiveTrackers;">
         <app-product-tracker
           class="flex-1 mb-4 sm:mb-0"
           [trackerDefinition]="tracker"

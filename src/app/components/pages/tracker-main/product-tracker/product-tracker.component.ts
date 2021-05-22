@@ -1,12 +1,21 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewEncapsulation} from '@angular/core';
 import {TrackerService} from '../../../../services/tracker.service';
-import {take} from 'rxjs/operators';
 import {ProductTracker} from '../../../../models/ProductTracker';
-import {PriceResponse} from '../../../../models/ScrapeResult'
-import { faEllipsisH, faChartArea, faShoppingBag, faExternalLinkAlt, faImage, faTimes, faClock, faEnvelope, faCog } from '@fortawesome/free-solid-svg-icons';
+import {
+  faChartArea,
+  faClock,
+  faCog,
+  faEllipsisH,
+  faEnvelope,
+  faExternalLinkAlt,
+  faImage,
+  faShoppingBag,
+  faTimes
+} from '@fortawesome/free-solid-svg-icons';
 import {MatDialog} from '@angular/material/dialog';
-import {AddTrackerDialogComponent} from '../add-tracker-dialog/add-tracker-dialog.component';
 import {TrackerDeleteDialogComponent} from './tracker-delete-dialog/tracker-delete-dialog.component';
+import {TrackingFrequency} from '../../../../models/TrackingFrequency';
+import {ProductTrackerConfig} from '../../../../models/ProductTrackerConfig';
 
 
 @Component({
@@ -38,18 +47,34 @@ export class ProductTrackerComponent implements OnInit, OnChanges {
   public modifiedTitle: string = "";
   public hostname: string = "";
 
-  constructor(private _priceService: TrackerService, public dialog: MatDialog) { }
+  public frequencyNumber: string = "";
+  public frequencyUnit: string = "";
+  public frequencyPretty: string = "";
+
+  constructor(private _trackerService: TrackerService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.priceDifference = this.trackerDefinition.priceData?.priceDifference.toString().replace(/-/g, "")!;
-    this.modifiedTitle = this.trackerDefinition.title.length > 80 ?
-      this.trackerDefinition.title?.substr(0, 80).trim() + "..." :
-      this.trackerDefinition.title!;
+    this.priceDifference = this.getPriceDifferenceString(this.trackerDefinition.priceData?.priceDifference);
+    if(this.trackerDefinition.title){
+      this.modifiedTitle = this.trackerDefinition.title.length > 80 ?
+        this.trackerDefinition.title?.substr(0, 80).trim() + "..." :
+        this.trackerDefinition.title!;
+    }
+
     this.hostname = new URL(this.trackerDefinition.url).hostname.replace("www.", "");
+    this.setFrequencyDisplay();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
 
+  }
+
+  getPriceDifferenceString(priceDifference: number){
+    if(Math.abs(priceDifference) > 0 && Math.abs(priceDifference) < 1){
+      return "< 1%";
+    }
+
+    return Math.round(priceDifference).toString().replace(/-/g, "") + "%";
   }
 
   remove(){
@@ -65,6 +90,49 @@ export class ProductTrackerComponent implements OnInit, OnChanges {
         this.removeEmitter.emit(this.trackerDefinition.id);
       }
     })
+  }
+
+  updateTrackerConfig(idToUpdate: string, config: ProductTrackerConfig){
+    this._trackerService.updateTracker(idToUpdate, config).subscribe((res: ProductTracker) => {
+      this.trackerDefinition = res;
+      this.setFrequencyDisplay();
+    })
+  }
+
+  toggleFrequency(){
+    let newConfig: ProductTrackerConfig;
+    //TODO :: Replace with switch
+    if(this.trackerDefinition.trackingFrequency === TrackingFrequency.Weekly){
+      newConfig = {
+        trackingFrequency: TrackingFrequency.Daily
+      }
+    } else {
+      newConfig = {
+        trackingFrequency: TrackingFrequency.Weekly
+      }
+    }
+
+    this.updateTrackerConfig(this.trackerDefinition.id, newConfig);
+  }
+
+  setFrequencyDisplay(){
+    switch(this.trackerDefinition.trackingFrequency){
+      case TrackingFrequency.Daily:
+        this.frequencyNumber = "24";
+        this.frequencyUnit = "hr";
+        this.frequencyPretty = "24 hours";
+        break;
+      case TrackingFrequency.Weekly:
+        this.frequencyNumber = "1";
+        this.frequencyUnit = "w";
+        this.frequencyPretty = "1 week";
+        break;
+      default:
+        this.frequencyNumber = "";
+        this.frequencyUnit = "";
+        this.frequencyPretty = "";
+        break;
+    }
   }
 
   displaySkeletonImage(){

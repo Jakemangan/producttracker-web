@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
 import {PriceResponse} from '../models/ScrapeResult';
 import {ProductTracker} from '../models/ProductTracker';
+import {catchError, switchMap, take} from 'rxjs/operators';
+import {UserService} from './user.service';
+import {ProductTrackerConfig} from '../models/ProductTrackerConfig';
+import {ToastrService} from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -11,14 +15,84 @@ import {ProductTracker} from '../models/ProductTracker';
 export class TrackerService {
 
   baseUrl = "";
+  private activeTrackers: ProductTracker[] = [];
 
-  constructor(private _http: HttpClient) {
+  constructor(private _http: HttpClient,
+              public _userService: UserService,
+              private _toastr: ToastrService) {
     this.baseUrl = environment.apiBaseUrl;
   }
 
-  getAllActiveTrackersByUserId(userId: string): Observable<ProductTracker[]>{
+  get ActiveTrackers(): ProductTracker[] {
+    return this.activeTrackers;
+  }
+
+  addTracker(url: string){
+    let newTracker: ProductTracker = {
+      url: url,
+      owner: this._userService.currentUserData.id,
+      id: "tbd"
+    }
+
+    this.activeTrackers.push(newTracker);
+
+    let initialiseBody = {
+      url: url,
+      owner: this._userService.currentUserData.id
+    }
+
+    this.initialiseTracker(initialiseBody).pipe(take(1)).subscribe((res: ProductTracker) => {
+      newTracker = res;
+
+      /*
+      * TODO :: Find a better way to init empty tracker and then update, probably something using IDs, but that means the front-end would need
+      * TODO :: to generate the ID
+       */
+      let indexOf = this.activeTrackers.indexOf(<ProductTracker> this.activeTrackers.find(tracker => tracker.id == "tbd"));
+      this.activeTrackers[indexOf] = newTracker
+    }, error => {
+      console.log("Error initialising tracker");
+      this.activeTrackers = this.activeTrackers.filter(x => x.id !== "tbd");
+      this._toastr.error("We were unable to add a tracker for that URL.", "", {
+        disableTimeOut: false,
+        progressBar: true,
+        positionClass: "toast-bottom-center"
+      })
+    });
+
+  }
+
+  removeTracker(trackerId: string){
+    let trackerInstance = this.activeTrackers.find(x => x.id === trackerId);
+    if(trackerInstance){
+      this.deleteTrackerById(trackerId).pipe().subscribe(() => {
+        this.getAllActiveTrackersByUserId(this._userService.currentUserData.id)
+      }, (err) => {
+        console.error("Unable to delete tracker");
+      })
+    }
+  }
+
+  updateTracker(idToUpdate: string, config: ProductTrackerConfig){
+    let url = this.baseUrl + "/tracker/config";
+    let body = {
+      id: idToUpdate,
+      config: config
+    }
+    return this._http.put<ProductTracker>(url, body).pipe(take(1));
+  }
+
+  /*
+  * API Calls
+   */
+  getAllActiveTrackersByUserId(userId: string): void {
     let url = this.baseUrl + "/tracker/" + userId;
-    return this._http.get<ProductTracker[]>(url);
+    this._http.get<ProductTracker[]>(url).subscribe((res: ProductTracker[]) => {
+      if(res && res.length > 0){
+        this.activeTrackers = [];
+        res.forEach(res => this.ActiveTrackers.push(res));
+      }
+    });
   }
 
   //TODO :: Type here

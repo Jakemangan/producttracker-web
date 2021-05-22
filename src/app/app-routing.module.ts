@@ -11,6 +11,7 @@ import {AuthSignupComponent} from './components/orphan-components/auth-signup/au
 import {AuthVerifyEmailComponent} from './components/orphan-components/auth-verify-email/auth-verify-email.component';
 import {AuthResolver} from './services/auth.resolver';
 import {AuthForgotPasswordComponent} from './components/orphan-components/auth-forgot-password/auth-forgot-password.component';
+import {TestProductComponent} from './components/pages/test-product/test-product.component';
 
 const routes: Routes = [
   {
@@ -49,13 +50,17 @@ const routes: Routes = [
     component: AuthForgotPasswordComponent
   },
   {
+    path: 'random-price-product',
+    component: TestProductComponent
+  },
+  {
     path: '',
     component: HomeComponent,
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { enableTracing: true})],
+  imports: [RouterModule.forRoot(routes, { enableTracing: false})],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
