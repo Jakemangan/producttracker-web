@@ -18,17 +18,17 @@ const routes: Routes = [
     path: 'app',
     component: TrackerMainComponent,
     canActivate: [AuthGuard],
-    resolve: {
-      cache: AuthResolver
-    }
+    // resolve: {
+    //   cache: AuthResolver
+    // }
   },
   {
     path: 'admin',
     component: AdminPanelComponent,
     canActivate: [AuthGuard, AdminGuard],
-    resolve: {
-      cache: AuthResolver
-    }
+    // resolve: {
+    //   cache: AuthResolver
+    // }
   },
   {
     path: 'login',
@@ -41,9 +41,9 @@ const routes: Routes = [
   {
     path: 'verify-email-address',
     component: AuthVerifyEmailComponent,
-    resolve: {
-      cache: AuthResolver
-    }
+    // resolve: {
+    //   cache: AuthResolver
+    // }
   },
   {
     path: 'forgot-password',

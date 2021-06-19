@@ -20,6 +20,7 @@ export interface LocalUser {
 })
 export class FirebaseAuthService {
   firebaseUserData: User;
+  isLoggedIn: boolean = false;
 
   constructor(
     public afs: AngularFirestore,   // Inject Firestore service
@@ -38,9 +39,10 @@ export class FirebaseAuthService {
       if (user) {
         this.firebaseUserData = user;
         localStorage.setItem('user', JSON.stringify(this.firebaseUserData));
-        JSON.parse(localStorage.getItem('user'));
+        // JSON.parse(localStorage.getItem('user'));
         await this._userService.getCurrentUserData(this.firebaseUserData.email);
         console.log("Current user data: ", this._userService.currentUserData);
+        this.SetIsLoggedIn();
       } else {
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
@@ -53,9 +55,10 @@ export class FirebaseAuthService {
     return this.afAuth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         localStorage.setItem('user', JSON.stringify(result.user));
-        this.ngZone.run(() => {
-          this.router.navigateByUrl('/app');
-        });
+        // this.ngZone.run(() => {
+        //
+        // });
+        
         this.GetUserData(result.user);
       }).catch((error) => {
         window.alert(error.message)
@@ -106,9 +109,9 @@ export class FirebaseAuthService {
   }
 
   // Returns true when user is looged in and email is verified
-  get isLoggedIn(): boolean {
+  SetIsLoggedIn(): void {
     const user = JSON.parse(localStorage.getItem('user'));
-    return (user !== null && user.emailVerified !== false);
+    this.isLoggedIn = (user !== null && user.emailVerified !== false);
   }
 
   // Auth logic to run auth providers

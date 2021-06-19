@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
+import { faImage } from '@fortawesome/free-solid-svg-icons';
 import {ProductTracker} from '../../../../models/ProductTracker';
+import {TrackerService} from '../../../../services/tracker.service';
 
 @Component({
   selector: 'app-active-tracker-display',
@@ -8,11 +10,26 @@ import {ProductTracker} from '../../../../models/ProductTracker';
 })
 export class ActiveTrackerDisplayComponent implements OnInit {
 
+  faImage = faImage;
+
+  public shouldDisplaySkeletonImage = false;
+
   @Input() tracker: ProductTracker;
 
-  constructor() { }
+  constructor(private _trackerService: TrackerService) { }
 
   ngOnInit(): void {
+    this._trackerService.newActiveTrackerSubject.subscribe(() => {
+      this.disableSkeletonImage();
+    })
+  }
+
+  displaySkeletonImage(){
+    this.shouldDisplaySkeletonImage = true;
+  }
+
+  disableSkeletonImage(){
+    this.shouldDisplaySkeletonImage = false;
   }
 
 }

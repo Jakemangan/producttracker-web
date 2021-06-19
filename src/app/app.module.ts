@@ -44,7 +44,8 @@ import { ActiveTrackerDisplayComponent } from './components/pages/tracker-main/a
 import { TrackerTableComponent } from './components/pages/tracker-main/tracker-table/tracker-table.component';
 import { TrackerSettingsPanelComponent } from './components/pages/tracker-main/active-tracker-display/tracker-settings-panel/tracker-settings-panel.component';
 import { SettingsRowComponent } from './components/pages/tracker-main/active-tracker-display/tracker-settings-panel/settings-row/settings-row.component';
-import { StaticColourSettingsRowComponent } from './components/pages/tracker-main/active-tracker-display/tracker-settings-panel/settings-row/static-colour-settings-row/static-colour-settings-row.component';
+import { StaticColourSettingsRowComponent } from './components/pages/tracker-main/active-tracker-display/tracker-settings-panel/static-colour-settings-row/static-colour-settings-row.component';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -96,7 +97,8 @@ import { StaticColourSettingsRowComponent } from './components/pages/tracker-mai
     ChartsModule,
     NgApexchartsModule,
     FontAwesomeModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MatTableModule
   ],
   providers: [FirebaseAuthService],
   bootstrap: [AppComponent],

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {faCalendar, faClock, faEnvelope, faExternalLinkAlt, faHourglassStart, faPercentage, faShoppingBag, faStopwatch } from '@fortawesome/free-solid-svg-icons';
+import {faCalendar, faClock, faEnvelope, faExternalLinkAlt, faHourglassStart, faPercentage, faShoppingBag, faShoppingBasket, faStopwatch } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-tracker-settings-panel',
@@ -9,7 +9,7 @@ import {faCalendar, faClock, faEnvelope, faExternalLinkAlt, faHourglassStart, fa
 export class TrackerSettingsPanelComponent implements OnInit {
 
   faClock = faClock;
-  faShoppingBag = faShoppingBag;
+  faShoppingBasket = faShoppingBasket;
   faEnvelope = faEnvelope;
   faPercentage = faPercentage;
   faCalendar = faCalendar;

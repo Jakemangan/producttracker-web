@@ -19,11 +19,11 @@
       </div>
     </div>
 
-    <div *ngIf="activeTracker" class="mt-4">
-      <app-active-tracker-display [tracker]="activeTracker"></app-active-tracker-display>
+    <div *ngIf="_trackerService.ActiveTracker" class="mt-4">
+      <app-active-tracker-display [tracker]="_trackerService.ActiveTracker"></app-active-tracker-display>
     </div>
 
-    <div class="tracker-container mt-2">
+    <div class="tracker-container mt-4">
         <app-tracker-table [trackers]="_trackerService.ProductTrackers"></app-tracker-table>
     </div>
 

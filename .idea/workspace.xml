@@ -5,31 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e4fe659-db56-4444-8295-16a28bae2878" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/active-tracker-display.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/active-tracker-display.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/active-tracker-display.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/active-tracker-display.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/settings-row/settings-row.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/settings-row/settings-row.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/settings-row/settings-row.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/settings-row/settings-row.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/settings-row/static-colour-settings-row/static-colour-settings-row.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/settings-row/static-colour-settings-row/static-colour-settings-row.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/settings-row/static-colour-settings-row/static-colour-settings-row.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/settings-row/static-colour-settings-row/static-colour-settings-row.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/tracker-settings-panel.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/tracker-settings-panel.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/tracker-settings-panel.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/tracker-settings-panel.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-table/tracker-table.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-table/tracker-table.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-table/tracker-table.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-table/tracker-table.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/active-tracker-display.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/active-tracker-display.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/active-tracker-display.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/active-tracker-display.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/active-tracker-display.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/active-tracker-display.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/settings-row/settings-row.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/settings-row/settings-row.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/settings-row/settings-row.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/settings-row/settings-row.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/settings-row/static-colour-settings-row/static-colour-settings-row.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/static-colour-settings-row/static-colour-settings-row.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/settings-row/static-colour-settings-row/static-colour-settings-row.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/static-colour-settings-row/static-colour-settings-row.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/settings-row/static-colour-settings-row/static-colour-settings-row.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/static-colour-settings-row/static-colour-settings-row.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/settings-row/static-colour-settings-row/static-colour-settings-row.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/static-colour-settings-row/static-colour-settings-row.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/tracker-settings-panel.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/tracker-settings-panel.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/tracker-settings-panel.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/tracker-settings-panel.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/tracker-settings-panel.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/tracker-settings-panel.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/product-tracker/product-tracker.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/product-tracker/product-tracker.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-main.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-main.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-main.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-main.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-table/tracker-table.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-table/tracker-table.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-table/tracker-table.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-table/tracker-table.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-table/tracker-table.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-table/tracker-table.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/firebase-auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/firebase-auth.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/services/tracker.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/tracker.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,6 +78,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\src\producttracker-web\src\app\components\pages\tracker-main\active-tracker-display\tracker-settings-panel" />
       <recent name="C:\src\producttracker-web\src\app\components\orphan-components\nav-bar" />
       <recent name="C:\src\producttracker-web\src\app\components\orphan-components\auth-button" />
       <recent name="C:\src\producttracker-web\src\app\services" />
@@ -163,6 +163,9 @@
       <workItem from="1620317617197" duration="1005000" />
       <workItem from="1620555074991" duration="373000" />
       <workItem from="1621714827329" duration="8263000" />
+      <workItem from="1621766100396" duration="10771000" />
+      <workItem from="1623176249310" duration="1451000" />
+      <workItem from="1624096843641" duration="1014000" />
     </task>
     <servers />
   </component>
@@ -189,7 +192,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-main.component.ts</url>
-          <line>51</line>
+          <line>42</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

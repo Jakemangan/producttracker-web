@@ -1,1 +1,78 @@
-<p>tracker-table works!</p>
+<div class="bg-white border rounded-md shadow min-h-64">
+  <div class="h-12 p-4 flex justify-between items-center">
+    <span class="text-sm"><strong>Trackers</strong></span>
+    <button
+      class="p-2 bg-white border border-blue-400 text-blue-400 rounded-full w-8 h-8 flex justify-center items-center shadow hover:bg-blue-100 cursor-pointer">
+      <fa-icon [icon]="faPlus"></fa-icon>
+    </button>
+  </div>
+
+  <div class="mt-4">
+    <table [dataSource]="dataSource" class="w-full" mat-table>
+
+      <ng-container matColumnDef="image">
+        <th *matHeaderCellDef mat-header-cell></th>
+        <td *matCellDef="let element" mat-cell class="w-1/5">
+          <div class="">
+            <img class="tracker-image" src="{{element.imageUrl}}" alt="">
+          </div>
+<!--          <div class="">-->
+<!--            <div [ngClass]="{'animate-pulse': !element.id}"-->
+<!--                 class="bg-gray-200 image-skeleton rounded flex justify-center items-center h-8 w-8 ml-auto mr-auto">-->
+<!--              <span class="skeleton-font-size text-gray-400">-->
+<!--                <fa-icon [icon]="faImage"></fa-icon>-->
+<!--              </span>-->
+<!--            </div>-->
+<!--          </div>-->
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="title">
+        <th *matHeaderCellDef mat-header-cell>Title</th>
+        <td *matCellDef="let element" class="w-2/5" mat-cell>
+          <div class="min-w-0 flex w-full width">
+            <span class="text-xxs truncate">{{element.title}} </span>
+          </div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="site">
+        <th *matHeaderCellDef mat-header-cell> Site</th>
+        <td *matCellDef="let element" class="w-2/5" mat-cell>
+          <div class="min-w-0 flex w-full width">
+            <span class="text-xxs truncate">{{element.url}} </span>
+          </div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="statuses">
+        <th *matHeaderCellDef mat-header-cell> Status</th>
+        <td *matCellDef="let element" mat-cell>
+          <div class="flex flex-row">
+            <fa-icon [icon]="faPlus"></fa-icon>
+            <fa-icon [icon]="faPlus"></fa-icon>
+            <fa-icon [icon]="faPlus"></fa-icon>
+            <fa-icon [icon]="faPlus"></fa-icon>
+          </div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="prices">
+        <th *matHeaderCellDef mat-header-cell> Price</th>
+        <td *matCellDef="let element" mat-cell> {{element.priceData.currentPrice}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th *matHeaderCellDef mat-header-cell> Actions</th>
+        <td *matCellDef="let element" mat-cell>
+          <span>Delete</span>
+        </td>
+      </ng-container>
+
+      <tr *matHeaderRowDef="displayedColumns" class="w-full" mat-header-row></tr>
+      <tr (click)="changeActiveTracker(i)" *matRowDef="let row; columns: displayedColumns; let i = index"
+          class="w-full hover:bg-gray-100 cursor-pointer h-12" mat-row></tr>
+    </table>
+
+  </div>
+</div>

@@ -1,9 +1,21 @@
 <div class="bg-white border shadow w-full min-h-64 rounded-md">
-  <div class="min-h-12 w-full flex justify-between p-3 border-b border-gray-200">
-    <div class="w-4/5">
+  <div class="w-full flex justify-between p-3 border-b border-gray-200">
+    <div class="w-1/12 max-height-50">
+      <div *ngIf="!shouldDisplaySkeletonImage" class="">
+        <img class="tracker-image" src="{{tracker.imageUrl}}" (error)="displaySkeletonImage()">
+      </div>
+      <div *ngIf="shouldDisplaySkeletonImage" class="">
+        <div [ngClass]="{'animate-pulse': !tracker.id}"  class="bg-gray-200 image-skeleton rounded flex justify-center items-center h-8 w-8 ml-auto mr-auto">
+            <span class="skeleton-font-size text-gray-400">
+              <fa-icon [icon]="faImage"></fa-icon>
+            </span>
+        </div>
+      </div>
+    </div>
+    <div class="w-8/12 flex items-center">
       <span class="text-xs block">{{tracker.title}}</span>
     </div>
-    <div>
+    <div class="w-3/12">
       <span>{{tracker.priceData.currentPrice}}</span>
     </div>
   </div>
