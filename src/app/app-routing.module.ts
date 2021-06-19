@@ -7,47 +7,24 @@ import {AdminPanelComponent} from './components/pages/admin-panel/admin-panel.co
 import {AdminGuard} from './services/admin.guard';
 import {AuthLoginComponent} from './components/orphan-components/auth-login/auth-login.component';
 import {AuthGuard} from './services/auth.guard';
-import {AuthSignupComponent} from './components/orphan-components/auth-signup/auth-signup.component';
-import {AuthVerifyEmailComponent} from './components/orphan-components/auth-verify-email/auth-verify-email.component';
-import {AuthResolver} from './services/auth.resolver';
-import {AuthForgotPasswordComponent} from './components/orphan-components/auth-forgot-password/auth-forgot-password.component';
 import {TestProductComponent} from './components/pages/test-product/test-product.component';
+import {AuthResolver} from './services/auth.resolver';
 
 const routes: Routes = [
   {
     path: 'app',
     component: TrackerMainComponent,
     canActivate: [AuthGuard],
-    // resolve: {
-    //   cache: AuthResolver
-    // }
+    resolve: [AuthResolver]
   },
   {
     path: 'admin',
     component: AdminPanelComponent,
     canActivate: [AuthGuard, AdminGuard],
-    // resolve: {
-    //   cache: AuthResolver
-    // }
   },
   {
     path: 'login',
     component: AuthLoginComponent
-  },
-  {
-    path: 'signup',
-    component: AuthSignupComponent
-  },
-  {
-    path: 'verify-email-address',
-    component: AuthVerifyEmailComponent,
-    // resolve: {
-    //   cache: AuthResolver
-    // }
-  },
-  {
-    path: 'forgot-password',
-    component: AuthForgotPasswordComponent
   },
   {
     path: 'random-price-product',

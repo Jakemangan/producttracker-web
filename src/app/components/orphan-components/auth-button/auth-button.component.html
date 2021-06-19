@@ -1,5 +1,5 @@
 <div class="flex justify-center">
-  <app-user-menu *ngIf="firebaseAuth.firebaseUserData as user else loginButton">
+  <app-user-menu *ngIf="gAuthService.isLoggedIn; else loginButton">
   </app-user-menu>
   <ng-template #loginButton>
     <app-login-button></app-login-button>

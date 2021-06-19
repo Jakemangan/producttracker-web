@@ -5,31 +5,36 @@ import {
   ActivatedRouteSnapshot
 } from '@angular/router';
 import { Observable, of } from 'rxjs';
-import {FirebaseAuthService} from './firebase-auth.service';
+import {GoogleAuthService} from './g-auth/google-auth.service';
 import {switchMap, take} from 'rxjs/operators';
-import {AngularFireAuth} from '@angular/fire/auth';
 import {UserService} from './user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthResolver implements Resolve<boolean> {
-  constructor(private _firebaseAuth: FirebaseAuthService, private _afAuth: AngularFireAuth, private _userService: UserService) {
+
+  constructor(private _gAuthService: GoogleAuthService,
+              private _router: Router,
+              private _userService: UserService){
   }
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
 
-    return this._afAuth.authState.pipe(take(1), switchMap(user => {
-      if(user){
-        this._firebaseAuth.firebaseUserData = user;
-        localStorage.setItem('user', JSON.stringify(user));
+    if(this._userService.currentUserData){
+      return of(true);
+    }
+
+    return this._gAuthService.user$.pipe(take(1), switchMap(async user => {
+      if (user) {
+        this._userService.setDisplayName(user.displayName);
+        await this._userService.getCurrentUserData(user.email);
+        return of(true);
       } else {
-        localStorage.setItem('user', null);
+        this._router.navigateByUrl('login')
       }
-      return this._userService.getCurrentUserData(user.email)
-    }), switchMap(() => {
-      return of(true).pipe(take(1));
-    }))
 
+      return of(true);
+    }))
   }
 }

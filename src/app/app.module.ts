@@ -14,8 +14,6 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import {environment, environment as env} from '../environments/environment';
-import { LoginButtonComponent } from './components/orphan-components/auth-button/login-button/login-button.component';
-import { LogoutButtonComponent } from './components/orphan-components/auth-button/logout-button/logout-button.component';
 import { AuthButtonComponent } from './components/orphan-components/auth-button/auth-button.component';
 import { NavBarComponent } from './components/orphan-components/nav-bar/nav-bar.component';
 import { UserMenuComponent } from './components/orphan-components/auth-button/user-menu/user-menu.component'
@@ -31,12 +29,7 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import { AuthLoginComponent } from './components/orphan-components/auth-login/auth-login.component';
-import { AuthSignupComponent } from './components/orphan-components/auth-signup/auth-signup.component';
-import { AuthVerifyEmailComponent } from './components/orphan-components/auth-verify-email/auth-verify-email.component';
-import {FirebaseAuthService} from './services/firebase-auth.service';
-import { AuthForgotPasswordComponent } from './components/orphan-components/auth-forgot-password/auth-forgot-password.component';
 import { TrackerDeleteDialogComponent } from './components/pages/tracker-main/product-tracker/tracker-delete-dialog/tracker-delete-dialog.component';
-import { PasswordStrengthComponent } from './components/orphan-components/auth-signup/password-strength/password-strength.component';
 import { FooterComponent } from './components/orphan-components/footer/footer.component';
 import { TestProductComponent } from './components/pages/test-product/test-product.component';
 import {ToastrModule} from 'ngx-toastr';
@@ -55,8 +48,6 @@ import {MatTableModule} from '@angular/material/table';
     TrackerMainComponent,
     ProductTrackerComponent,
     AddTrackerDialogComponent,
-    LoginButtonComponent,
-    LogoutButtonComponent,
     AuthButtonComponent,
     AuthButtonComponent,
     NavBarComponent,
@@ -64,11 +55,7 @@ import {MatTableModule} from '@angular/material/table';
     AdminPanelComponent,
     TrackerChartComponent,
     AuthLoginComponent,
-    AuthSignupComponent,
-    AuthVerifyEmailComponent,
-    AuthForgotPasswordComponent,
     TrackerDeleteDialogComponent,
-    PasswordStrengthComponent,
     FooterComponent,
     TestProductComponent,
     ActiveTrackerDisplayComponent,
@@ -100,7 +87,7 @@ import {MatTableModule} from '@angular/material/table';
     ToastrModule.forRoot(),
     MatTableModule
   ],
-  providers: [FirebaseAuthService],
+  providers: [],
   bootstrap: [AppComponent],
   entryComponents: [AddTrackerDialogComponent]
 })

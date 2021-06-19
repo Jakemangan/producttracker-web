@@ -1,11 +1,8 @@
 import {Inject, Injectable} from '@angular/core';
-import {DOCUMENT} from '@angular/common';
-import {switchMap, take, takeUntil, takeWhile} from 'rxjs/operators';
 import {EMPTY, Observable, of} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {UserData} from '../models/UserData';
 import {environment} from '../../environments/environment';
-import {FirebaseAuthService} from './firebase-auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +10,7 @@ import {FirebaseAuthService} from './firebase-auth.service';
 export class UserService {
 
   public currentUserData: UserData = undefined!;
+  public displayName: string = "";
   public auth0UserData: any = undefined;
 
   constructor(private http: HttpClient) {
@@ -27,8 +25,12 @@ export class UserService {
   getCurrentUserData(email: string): Promise<void>{
     return this.getUserData(email).toPromise().then(user => {
       this.currentUserData = user;
-      console.log("User data retrieved");
+      console.log("User data retrieved:", user);
     })
+  }
+
+  setDisplayName(name: string){
+    this.displayName = name;
   }
 
   // getCurrentUserData(): Observable<UserData>{

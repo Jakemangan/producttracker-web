@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NavigationStart, Router} from '@angular/router';
 import {UserService} from './services/user.service';
-import {FirebaseAuthService} from './services/firebase-auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +8,7 @@ import {FirebaseAuthService} from './services/firebase-auth.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  constructor(public auth: FirebaseAuthService, router: Router, private _userService: UserService) {
+  constructor(router: Router, private _userService: UserService) {
     router.events.subscribe((event) => {
       if(event instanceof NavigationStart) {
         console.log(event);

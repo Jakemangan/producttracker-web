@@ -5,7 +5,7 @@
     <h1>Overview</h1>
     <div class="w-full pt-2 pl-6 pr-6 pb-2 card-grey-border bg-white rounded-md mt-2">
       <div class="flex flex-row justify-between items-center">
-        <div class="text-sm text-gray-600 ">Welcome back, <span class="text-gray-800 font-medium">{{firebaseAuth.firebaseUserData.email}}</span> - Let's get started.</div>
+        <div class="text-sm text-gray-600 ">Welcome back, <span class="text-gray-800 font-medium">{{_userService.displayName}}</span> - Let's get started.</div>
         <button class="main-action-colour text-white border border-white text-xs font-semibold w-36 rounded h-8"
                 (click)="openAddTrackerDialog()" [disabled]="_trackerService.ProductTrackers.length >= 22">ADD NEW TRACKER</button>
       </div>

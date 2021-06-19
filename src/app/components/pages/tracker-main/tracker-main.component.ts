@@ -3,11 +3,7 @@ import {ProductTracker} from '../../../models/ProductTracker';
 import {AddTrackerDialogComponent} from './add-tracker-dialog/add-tracker-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
 import {TrackerService} from '../../../services/tracker.service';
-import {catchError, switchMap, take, takeUntil} from 'rxjs/operators';
-import {EMPTY, of} from 'rxjs';
 import {UserService} from '../../../services/user.service';
-import {FirebaseAuthService} from '../../../services/firebase-auth.service';
-import {ActiveTrackerService} from '../../../services/active-tracker.service';
 
 @Component({
   selector: 'app-tracker-main',
@@ -18,8 +14,7 @@ export class TrackerMainComponent implements OnInit {
 
   constructor(public dialog: MatDialog,
               public _trackerService: TrackerService,
-              public _userService: UserService,
-              public firebaseAuth: FirebaseAuthService) { }
+              public _userService: UserService) { }
 
   ngOnInit(): void {
     this._trackerService.getAllTrackersByUserId(this._userService.currentUserData.id);

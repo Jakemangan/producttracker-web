@@ -1,5 +1,4 @@
-<div *ngIf="firebaseAuth.isLoggedIn">
-  <div class="flex flex-row"
+<div class="flex flex-row"
   [matMenuTriggerFor]="menu"
   (menuOpened)="menuOpened()"
   (menuClosed)="menuClosed()">
@@ -18,4 +17,3 @@
     <button class="h-4" mat-menu-item><span class="h-full flex items-center">Settings</span></button>
     <button class="h-4" mat-menu-item (click)="logout()"><span class="h-full flex items-center">Logout</span></button>
   </mat-menu>
-</div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FirebaseAuthService} from '../../../services/firebase-auth.service';
+import {GoogleAuthService} from '../../../services/g-auth/google-auth.service';
 
 @Component({
   selector: 'app-auth-button',
@@ -7,10 +7,8 @@ import {FirebaseAuthService} from '../../../services/firebase-auth.service';
   styleUrls: ['./auth-button.component.scss']
 })
 export class AuthButtonComponent implements OnInit {
-  constructor(public firebaseAuth: FirebaseAuthService) {}
+  constructor(public gAuthService: GoogleAuthService) {}
 
   ngOnInit(): void {
-    console.log("Firebase user data: " + this.firebaseAuth.firebaseUserData)
-    console.log("Logged: " + this.firebaseAuth.isLoggedIn);
   }
 }
