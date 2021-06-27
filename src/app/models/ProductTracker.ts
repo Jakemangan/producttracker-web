@@ -5,6 +5,7 @@ export interface ProductTracker {
   id?: string,
   owner: string;
   url: string,
+  siteHostname?: string;
   title?: string,
   imageUrl?: string,
   priceData?: ProductTrackerPriceData

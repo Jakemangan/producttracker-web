@@ -19,14 +19,18 @@
       </div>
     </div>
 
-    <div *ngIf="_trackerService.ActiveTracker" class="mt-4">
-      <app-active-tracker-display [tracker]="_trackerService.ActiveTracker"></app-active-tracker-display>
-    </div>
+    <div class="flex flex-row w-full mt-4">
+      <div class="w-3/5">
+        <app-product-tracker-v2 [productTracker]="_trackerService.ActiveTracker"></app-product-tracker-v2>
+      </div>
+      <div class="w-2/5 p-2 pt-0 pr-0">
+        <app-tracker-highlight-chip
+          *ngFor="let tracker of _trackerService.ProductTrackers"
+          [productTracker]="tracker"
 
-    <div class="tracker-container mt-4">
-        <app-tracker-table [trackers]="_trackerService.ProductTrackers"></app-tracker-table>
+        ></app-tracker-highlight-chip>
+      </div>
     </div>
-
   </div>
 </div>
 

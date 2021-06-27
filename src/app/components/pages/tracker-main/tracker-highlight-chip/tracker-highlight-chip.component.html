@@ -1,0 +1,40 @@
+<div
+  class="bg-white rounded shadow-md w-full mb-2 p-2 hover:bg-gray-100 cursor-pointer"
+  (click)="changeActiveTracker()">
+
+  <div class="flex flex-row h-full">
+    <div class="w-3/12 h-full flex justify-start items-end">
+      <img class="tracker-image" src="{{productTracker.imageUrl}}"  alt="Tracker image">
+    </div>
+    <div class="w-9/12 ml-2 flex flex-col justify-between">
+      <div class="text-xs font-semibold truncate w-full">
+        {{productTracker.title}}
+      </div>
+      <div class="flex justify-between items-center">
+        <div class="flex flex-row">
+          <div class="mr-2">
+            <span *ngIf="productTracker.priceData.priceDifference > 0" class="text-base price-red font-bold">{{productTracker.id ? productTracker.priceData.currentPricePretty : '...'}}</span>
+            <span *ngIf="productTracker.priceData.priceDifference == 0" class="text-base text-gray-600 font-bold">{{productTracker.id ? productTracker.priceData.currentPricePretty : '...'}}</span>
+            <span *ngIf="productTracker.priceData.priceDifference < 0" class="text-base price-green font-bold">{{productTracker.id ? productTracker.priceData.currentPricePretty : '...'}}</span>
+          </div>
+          <div class="flex flex-row justify-end mt-1 percentage-position">
+            <!--          <span class="text-xs text-gray-500">Price</span>-->
+            <div *ngIf="productTracker.priceData.priceDifference > 0" class="h-4 w-12 flex rounded bg-red-300 text-red-900 justify-center items-center">
+              <span class="text-base"><mat-icon [inline]="true">arrow_drop_up</mat-icon></span>
+              <span class="text-xxs font-semibold">{{productTracker.priceData.priceDifference | number: '0.0-0'}}%</span>
+            </div>
+            <div *ngIf="productTracker.priceData.priceDifference < 0" class="h-4 w-12 flex rounded bg-green-300 text-green-900 justify-center items-center">
+              <span class="text-base"><mat-icon class="text-lg" [inline]="true">arrow_drop_down</mat-icon></span>
+              <span class="text-xxs font-semibold">{{productTracker.priceData.priceDifference | number: '0.0-0'}}%</span>
+            </div>
+          </div>
+        </div>
+        <div class="w-5 h-5 cursor-pointer flex justify-center items-center">
+          <fa-icon [icon]="faCog" class="text-gray-400 hover:text-gray-600"></fa-icon>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

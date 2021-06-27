@@ -90,8 +90,8 @@ export class TrackerService {
     return this._http.put<ProductTracker>(url, body).pipe(take(1));
   }
 
-  changeActiveTracker(index: number){
-    this.activeTracker = this.trackers[index];
+  changeActiveTracker(id: string){
+    this.activeTracker = this.trackers.find(x => x.id === id);
     this.newActiveTrackerSubject.next();
   }
 
@@ -103,6 +103,11 @@ export class TrackerService {
     this._http.get<ProductTracker[]>(url).pipe(take(1)).subscribe((res: ProductTracker[]) => {
       if(res && res.length > 0){
         this.trackers = res;
+
+        this.trackers.forEach(tracker => {
+          tracker.siteHostname = new URL(tracker.url).hostname.replace("www.", "");
+        })
+
         this.activeTracker = res[0];
         this.newTrackerDataSubject.next();
       }

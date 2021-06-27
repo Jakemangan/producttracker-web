@@ -5,55 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e4fe659-db56-4444-8295-16a28bae2878" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/services/g-auth/google-auth.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/product-tracker-v2/product-tracker-v2.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/product-tracker-v2/product-tracker-v2.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/product-tracker-v2/product-tracker-v2.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-highlight-chip/tracker-highlight-chip.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-highlight-chip/tracker-highlight-chip.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-highlight-chip/tracker-highlight-chip.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-highlight-chip/tracker-highlight-chip.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/box.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/auth-button.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/auth-button.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/auth-button.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/auth-button.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/login-button/login-button.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/login-button/login-button.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/models/User.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/login-button/login-button.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/login-button/login-button.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/logout-button/logout-button.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/logout-button/logout-button.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/logout-button/logout-button.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/logout-button/logout-button.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/user-menu/user-menu.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/user-menu/user-menu.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/user-menu/user-menu.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/orphan-components/auth-button/user-menu/user-menu.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-forgot-password/auth-forgot-password.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-forgot-password/auth-forgot-password.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-forgot-password/auth-forgot-password.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-forgot-password/auth-forgot-password.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-login/auth-login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/orphan-components/auth-login/auth-login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-login/auth-login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/orphan-components/auth-login/auth-login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-signup/auth-signup.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-signup/auth-signup.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-signup/auth-signup.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-signup/auth-signup.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-signup/password-strength/password-strength.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-signup/password-strength/password-strength.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-signup/password-strength/password-strength.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-signup/password-strength/password-strength.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-verify-email/auth-verify-email.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-verify-email/auth-verify-email.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-verify-email/auth-verify-email.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/orphan-components/auth-verify-email/auth-verify-email.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/test-product/test-product.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/test-product/test-product.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/active-tracker-display.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/active-tracker-display.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/active-tracker-display.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/active-tracker-display.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/settings-row/settings-row.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/settings-row/settings-row.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/settings-row/settings-row.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/product-tracker-v2/product-tracker-v2.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/settings-row/settings-row.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/static-colour-settings-row/static-colour-settings-row.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/static-colour-settings-row/static-colour-settings-row.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/static-colour-settings-row/static-colour-settings-row.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/static-colour-settings-row/static-colour-settings-row.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/tracker-settings-panel.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/tracker-settings-panel.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/tracker-settings-panel.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/active-tracker-display/tracker-settings-panel/tracker-settings-panel.component.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-main.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-main.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-main.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-main.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-main.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/services/active-tracker.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/services/admin.guard.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/services/auth.guard.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/services/auth.guard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/auth.guard.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/services/auth.resolver.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/services/auth.resolver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/auth.resolver.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/services/firebase-auth.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/services/firebase-auth.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/services/price.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-table/tracker-table.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-table/tracker-table.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-table/tracker-table.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/pages/tracker-main/tracker-table/tracker-table.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/models/ProductTracker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/models/ProductTracker.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/tracker.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/tracker.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +175,9 @@
       <workItem from="1621714827329" duration="8263000" />
       <workItem from="1621766100396" duration="10771000" />
       <workItem from="1623176249310" duration="1451000" />
-      <workItem from="1624096843641" duration="9068000" />
+      <workItem from="1624096843641" duration="14153000" />
+      <workItem from="1624785161620" duration="6417000" />
+      <workItem from="1624799457537" duration="752000" />
     </task>
     <servers />
   </component>

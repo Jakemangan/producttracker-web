@@ -33,12 +33,9 @@ import { TrackerDeleteDialogComponent } from './components/pages/tracker-main/pr
 import { FooterComponent } from './components/orphan-components/footer/footer.component';
 import { TestProductComponent } from './components/pages/test-product/test-product.component';
 import {ToastrModule} from 'ngx-toastr';
-import { ActiveTrackerDisplayComponent } from './components/pages/tracker-main/active-tracker-display/active-tracker-display.component';
-import { TrackerTableComponent } from './components/pages/tracker-main/tracker-table/tracker-table.component';
-import { TrackerSettingsPanelComponent } from './components/pages/tracker-main/active-tracker-display/tracker-settings-panel/tracker-settings-panel.component';
-import { SettingsRowComponent } from './components/pages/tracker-main/active-tracker-display/tracker-settings-panel/settings-row/settings-row.component';
-import { StaticColourSettingsRowComponent } from './components/pages/tracker-main/active-tracker-display/tracker-settings-panel/static-colour-settings-row/static-colour-settings-row.component';
 import {MatTableModule} from '@angular/material/table';
+import { ProductTrackerV2Component } from './components/pages/tracker-main/product-tracker-v2/product-tracker-v2.component';
+import { TrackerHighlightChipComponent } from './components/pages/tracker-main/tracker-highlight-chip/tracker-highlight-chip.component';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -58,11 +55,8 @@ import {MatTableModule} from '@angular/material/table';
     TrackerDeleteDialogComponent,
     FooterComponent,
     TestProductComponent,
-    ActiveTrackerDisplayComponent,
-    TrackerTableComponent,
-    TrackerSettingsPanelComponent,
-    SettingsRowComponent,
-    StaticColourSettingsRowComponent
+    ProductTrackerV2Component,
+    TrackerHighlightChipComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SettingsRowComponent } from './settings-row.component';
+import { ProductTrackerV2Component } from './product-tracker-v2.component';
 
-describe('SettingsRowComponent', () => {
-  let component: SettingsRowComponent;
-  let fixture: ComponentFixture<SettingsRowComponent>;
+describe('ProductTrackerV2Component', () => {
+  let component: ProductTrackerV2Component;
+  let fixture: ComponentFixture<ProductTrackerV2Component>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SettingsRowComponent ]
+      declarations: [ ProductTrackerV2Component ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SettingsRowComponent);
+    fixture = TestBed.createComponent(ProductTrackerV2Component);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
